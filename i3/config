@@ -17,7 +17,7 @@ font pango:Iosevka 11
 
 
 set $bg-color 	         #F05956
-set $inactive-bg-color   #0B1624
+set $inactive-bg-color   #0E1622
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #F78C6C

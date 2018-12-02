@@ -27,7 +27,7 @@
    so we will force lwt vars */
 :root
 {
-	--toolbar-color: #0b1624 !important;
+	--toolbar-color: #0F111a !important;
 	--toolbar-bgcolor: var(--chrome-secondary-background-color) !important;
 	
 	--chrome-color: hsl(210, 5%, 63%) !important;
@@ -76,7 +76,7 @@
 #main-window[privatebrowsingmode],
 :root:-moz-lwtheme-brighttext
 {
-	--lwt-toolbar-field-background-color: #0b1624 !important;
+	--lwt-toolbar-field-background-color: #0F111a !important;
 	--lwt-toolbar-field-hover-background-color: #101927 !important;
 	--lwt-toolbar-field-focus-background-color: #131f31	!important;
 	
@@ -84,8 +84,8 @@
 	
 	--chrome-color: hsl(210, 5%, 63%) !important;
 	--toolbar-color: hsl(180, 4%, 95%) !important;
-	--chrome-background-color: #0b1624 !important;
-	--chrome-secondary-background-color: #0b1624 !important;
+	--chrome-background-color: #0F111a !important;
+	--chrome-secondary-background-color: #0F111a !important;
 	--toolbox-border-bottom-color: hsl(0, 0%, 16%) !important;
 	
 	--tab-hover-fill-opacity: .5 !important;
