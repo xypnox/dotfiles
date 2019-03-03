@@ -6,7 +6,7 @@ export BASH_IT="/home/xypnox/.bash_it"
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
 # Use the "powerline-multiline" theme
-export BASH_IT_THEME="powerline-naked"
+export BASH_IT_THEME="xypowerline"
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -39,7 +39,7 @@ export SCM_CHECK=true
 
 # Set Xterm/screen/Tmux title with shortened command and directory.
 # Uncomment this to set.
-#export SHORT_TERM_LINE=true
+export SHORT_TERM_LINE=true
 
 # Set vcprompt executable path for scm advance info in prompt (demula theme)
 # https://github.com/djl/vcprompt
@@ -54,6 +54,7 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
+printf "\n"
 toilet @xypnox -f smblock | lolcat
 printf "\n"
 cat ~/Projects/ricing/wttr/weather.txt
@@ -61,3 +62,9 @@ printf "\n"
 todx
 printf "\n"
 wal --preview
+source /home/xypnox/.local/bin/activate.sh
+
+
+alias yt='youtube-viewer'
+export GOPATH=$HOME/go
+export PATH=$GOPATH:$GOPATH/bin:$PATH
