@@ -1,0 +1,49 @@
+! special
+*.foreground:   #8F93A2
+*.background:   #0F111A
+*.cursorColor:  #FFCC00
+
+! black
+*.color0:       #1c1d21 
+*.color8:       #babcc4
+
+! red
+*.color1:       #FF5370
+*.color9:       #FF5370
+
+! green
+*.color2:       #C3E88D
+*.color10:      #C3E88D
+
+! yellow
+*.color3:       #FFCB6B
+*.color11:      #FFCB6B
+
+! blue
+*.color4:       #C792EA 
+*.color12:      #C792EA
+
+! magenta
+*.color5:       #f07178
+*.color13:      #f07178
+
+! cyan
+*.color6:       #89DDFF
+*.color14:      #89DDFF
+
+! white
+*.color7:       #cbcdd2 
+*.color15:      #cbcdd2
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+URxvt.font: xft:Fura Code:size=11
+URxvt.scrollBar: false
+URxvt.internalBorder:  12
+

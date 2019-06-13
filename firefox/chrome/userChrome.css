@@ -1,7 +1,76 @@
-@import "_vars.css";
-@import "_browser.css";
-@import "_tabbar.css";
-@import "_navbar.css";
-@import "_personalbar.css";
+@import '_vars.css';
+@import '_browser.css';
+@import '_tabbar.css';
+@import '_navbar.css';
+@import '_personalbar.css';
 
-#navigator-toolbox::after{display:none !important}
+#navigator-toolbox::after {
+  display: none !important;
+}
+/*
+#TabsToolbar {
+  height: 16px;
+}
+
+#TabsToolbar:hover {
+  height: auto;
+} */
+
+/* Hide the sidebar header */
+#sidebar-box[sidebarcommand='treestyletab_piro_sakura_ne_jp-sidebar-action']
+  #sidebar-header {
+  display: none;
+}
+
+:root {
+  --sidebar-hover-width: 16px;
+  --sidebar-visible-width: 200px;
+}
+
+#sidebar-box {
+  position: relative !important;
+  overflow-x: hidden !important;
+  margin-right: calc(var(--sidebar-hover-width) * -1) !important;
+  left: var(--sidebar-hover-width) !important;
+  min-width: var(--sidebar-hover-width) !important;
+  max-width: var(--sidebar-hover-width) !important;
+  opacity: 0 !important;
+}
+
+#sidebar-box:hover {
+  margin-right: calc(var(--sidebar-visible-width) * -1) !important;
+  left: var(--sidebar-visible-width) !important;
+  min-width: var(--sidebar-visible-width) !important;
+  max-width: var(--sidebar-visible-width) !important;
+  opacity: 1 !important;
+}
+
+#sidebar {
+  opacity: 0 !important;
+}
+
+#sidebar:hover {
+  opacity: 1 !important;
+}
+
+/* #sidebar-header is hidden by default, change "none" to "inherit" to restore it. */
+#sidebar-header {
+  display: none !important;
+}
+
+#sidebar-splitter {
+  /* #sidebar-splitter styles the divider between the sidebar and the rest of the browser. */
+}
+
+#nav-bar {
+  overflow-y: hidden !important;
+  margin-bottom: -32px !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  transition: max-height 0.2s ease-in-out 0.5s, min-height 0.2s ease-in-out 0.5s !important;
+}
+
+:hover > #nav-bar {
+  max-height: 32px !important;
+  transition: max-height 0.2s ease-in-out, min-height 0.2s ease-in-out !important;
+}
