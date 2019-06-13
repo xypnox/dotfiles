@@ -70,7 +70,8 @@
   transition: max-height 0.2s ease-in-out 0.5s, min-height 0.2s ease-in-out 0.5s !important;
 }
 
-:hover > #nav-bar {
+:hover > #nav-bar,
+#nav-bar:focus-within {
   max-height: 32px !important;
   transition: max-height 0.2s ease-in-out, min-height 0.2s ease-in-out !important;
 }

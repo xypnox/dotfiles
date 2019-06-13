@@ -1,6 +1,7 @@
 #TabsToolbar {
   padding-inline-end: 2px !important;
   color: var(--chrome-color) !important;
+  padding: 0 8px !important;
 }
 #TabsToolbar:-moz-lwtheme-darktext:not(:-moz-window-inactive),
 #main-window[privatebrowsingmode] #TabsToolbar {
