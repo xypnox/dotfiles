@@ -13,18 +13,18 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Iosevka 11
+font pango: Iosevka 11
 
 
-set $bg-color 	         #F05956
-set $inactive-bg-color   #0F111A
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #F78C6C
+set $bg-color  #F05956
+set $inactive-bg-color  #0F111A
+set $text-color  #f3f4f5
+set $inactive-text-color  #676E7D
+set $urgent-bg-color  #F78C6C
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -46,7 +46,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 bindsym Mod1+Tab exec rofi -show
 bindsym $mod+p exec scrot
-bindsym $mod+shift+x exec i3lock -i /home/xypnox/dotfiles/lock.png
+bindsym $mod+shift+x exec i3lock -i / home/xypnox/dotfiles/lock.png
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -101,20 +101,20 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+# bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 " 1 "
-set $ws2 " 2 "
-set $ws3 " 3 "
-set $ws4 " 4 "
-set $ws5 " 5 "
-set $ws6 " 6 "
-set $ws7 " 7 "
-set $ws8 " 8 "
-set $ws9 " 9 "
-set $ws10 " 0 "
+set $ws1 "1 ⟩ "
+set $ws2 "2 ⟩ "
+set $ws3 "3 ⟩ "
+set $ws4 "4 ⟩ "
+set $ws5 "5 ⟩ "
+set $ws6 "6 ⟩ "
+set $ws7 "7 ⟩ "
+set $ws8 "8 ⟩ "
+set $ws9 "9 ⟩ "
+set $ws10 "0 ⟩ "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -127,7 +127,8 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace next
+bindsym $mod+Tab exec ~/dotfiles/scripts/i3-switch/i3-workspace-switch
 
 
 # move focused container to workspace
@@ -151,27 +152,27 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -179,32 +180,31 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        font pango:Iosevka 10
-        separator_symbol ""
-        colors {
-		background $inactive-bg-color
-	    	separator $bg-color
-		#                  border             background         text
-		focused_workspace  $inactive-bg-color          $inactive-bg-color          $bg-color
-		inactive_workspace $inactive-bg-color          $inactive-bg-color          $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    font pango: Iosevka 10
+    separator_symbol ""
+    colors {
+        background $inactive-bg-color
+        separator $bg-color
+        #                  border             background         text
+        focused_workspace  $inactive-bg-color          $inactive-bg-color          $bg-color
+        inactive_workspace $inactive-bg-color          $inactive-bg-color          $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    }
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+# decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle  # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5  # increase screen brightness
 bindsym shift+XF86MonBrightnessDown exec xbacklight -set 1
 bindsym shift+XF86MonBrightnessUp exec xbacklight -set 80
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5  # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -215,18 +215,17 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Apps
 exec_always alsactl -F restore
-exec_always albert
 exec_always feh --bg-fill /home/xypnox/dotfiles/background.jpg
 exec compton --config ~/.config/compton.conf
 exec /home/xypnox/Apps/Telegram/Telegram -startintray
-exec rfkill block bluetooth
+exec /home/xypnox/Apps/clipster/clipster -d
+# exec rfkill block bluetooth
 exec lshw
-exec_always --no-startup-id python3 /home/xypnox/Projects/ricing/wttr/app-on-ws-init.py --command "mate-terminal --zoom=1.6 -e /home/xypnox/Projects/ricing/wttr/weather.sh" --workspace " 0 "
 exec nm-applet
-exec curl wttr.in/?0 > /tmp/weather.txt
+# exec curl wttr.in /?0 > /tmp/weather.txt
 
 # Gaps
-gaps inner 24
+gaps inner 20
 # No gaps for single window
 smart_gaps on
 # Remove Window title
@@ -245,4 +244,4 @@ client.urgent           $urgent-bg-color        $urgent-bg-color        $text-co
 
 bindsym $mod+c exec nautilus
 bindsym Print exec scrot '%Y-%m-%d_$wx-%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/screenshots/scrots/'
-bindsym Shift+Print exec scrot -u '%Y-%m-%d_$wx-%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/screenshots/scrots/'
+bindsym Shift+Print exec scrot - u '%Y-%m-%d_$wx-%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/screenshots/scrots/'
