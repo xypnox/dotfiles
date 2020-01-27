@@ -37,6 +37,9 @@ The config files for the following are present in this repo:
 
 The theme I use for VSCode is [Material Theme Ocean](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme).
 
+Icon Theme: [La Capitaine](https://github.com/keeferrourke/la-capitaine-icon-theme)
+Cursor Theme: [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)
+
 I use prezto for zsh for the terminal. In my opinion, it is already pretty good with features and functionality such that I only need to modify a few aliasses while I use it. Hence I have not added the config for it. The aliases are present in `.zshrc`.
 
 The wallpaper is a modified version of a [witcher wallpaper I found online](https://wallpaperplay.com/walls/full/9/6/8/120747.jpg). The modified verion is present in this repo and also at [reddit's r/wallpapers](https://www.reddit.com/r/wallpapers/comments/eqeqx4/space_witcher_3840x2160/).
