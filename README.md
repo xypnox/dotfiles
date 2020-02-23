@@ -44,6 +44,15 @@ I use prezto for zsh for the terminal. In my opinion, it is already pretty good 
 
 The wallpaper is a modified version of a [witcher wallpaper I found online](https://wallpaperplay.com/walls/full/9/6/8/120747.jpg). The modified verion is present in this repo and also at [reddit's r/wallpapers](https://www.reddit.com/r/wallpapers/comments/eqeqx4/space_witcher_3840x2160/).
 
+## Folder Icons
+
+![](https://i.imgur.com/unlPAjh.png)
+
+**Attributions for the original Icons:**
+
+- Icons made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a>  
+- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a>
+
 ## Scripts
 
 ### i3-workspace-switch
