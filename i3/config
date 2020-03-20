@@ -131,6 +131,8 @@ bindsym $mod+0 workspace $ws10
 bindsym $mod+Shift+Tab workspace next
 bindsym $mod+Tab exec ~/dotfiles/scripts/i3-switch/i3-workspace-switch
 
+workspace $ws4 output HDMI1
+workspace $ws5 output HDMI1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -143,6 +145,10 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+#move focused workspace in two monitor setup
+bindsym $mod+Shift+greater move container to output right
+bindsym $mod+Shift+less move container to output left
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -216,7 +222,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Apps
 exec_always alsactl -F restore
-exec_always feh --bg-fill /home/xypnox/dotfiles/background.jpg
+exec_always feh --bg-fill /home/xypnox/dotfiles/background.png
 exec compton --config ~/.config/compton.conf
 exec /home/xypnox/Apps/Telegram/Telegram -startintray
 exec /home/xypnox/Apps/clipster/clipster -d
