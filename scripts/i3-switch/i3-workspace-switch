@@ -5,7 +5,9 @@ import sys
 
 import i3
 
-workspaces = i3.get_workspaces()[:-1]
+workspaces = i3.get_workspaces()
+if len(workspaces) > 2:
+    workspaces = workspaces[:-1]
 workspaces.append(workspaces[0])
 print(workspaces)
 for i in range(len(workspaces)):
