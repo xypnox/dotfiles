@@ -251,4 +251,4 @@ client.urgent           $urgent-bg-color        $urgent-bg-color        $text-co
 
 bindsym $mod+c exec nautilus
 bindsym Print exec scrot '%Y-%m-%d_$wx-%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/screenshots/scrots/'
-bindsym Shift+Print exec scrot - u '%Y-%m-%d_$wx-%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/screenshots/scrots/'
+bindsym Shift+Print exec gnome-screenshot -a 
