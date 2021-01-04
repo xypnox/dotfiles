@@ -1,3 +1,5 @@
+![Manjaro Endgame](https://i.imgur.com/x6n6qk7.png)
+
 # dotfiles
 
 My system's dotfile :smile:
@@ -45,6 +47,8 @@ Icon Theme: [La Capitaine](https://github.com/keeferrourke/la-capitaine-icon-the
 Cursor Theme: Breeze (preinstalled with Manjaro i3)
 
 I use prezto for zsh for the terminal with prezto default settings. In my opinion, it is already pretty good with features and functionality such that I only need to modify a few aliasses while I use it. Hence I have not added the config for it.
+
+Older versions of the theme can be found in commit history and some files not used in new setup have been moved to `old`.
 
 ## Neofetch
 
