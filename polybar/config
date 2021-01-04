@@ -36,6 +36,7 @@ height = 27
 radius = 14
 fixed-center = true
 bottom = true
+enable-ipc = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -388,7 +389,7 @@ tail = true
 format-prefix = "♬ "
 format = <label>
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
-click-left = playerctl play-pause spotify
+click-left = playerctl play-pause -p spotify
 
 [module/spotify-prev]
 type = custom/script
