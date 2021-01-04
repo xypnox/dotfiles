@@ -4,23 +4,27 @@ My system's dotfile :smile:
 
 ## The Desktop
 
-![The main system](https://i.imgur.com/rn5jBCG.png)
+![The main system](https://i.imgur.com/PYuKtjB.png)
 
-## Floating Windows
+## Empty Desktop
 
-![Foating windows](https://i.imgur.com/AZj7eHP.png)
+![The empty desktop](https://i.imgur.com/VOVdNBc.png)
+
+## Rofi Launcher
+
+![Rofi launcher](https://i.imgur.com/LIqBPDO.png)
 
 ## Code
 
-![Code](https://i.imgur.com/Ri3F1je.png)
+![Code](https://i.imgur.com/I4pmkld.png)
 
-## Browser
+## Browser (_firefox_)
 
-![Firefox](https://i.imgur.com/Dqeq7fF.png)
+![Firefox](https://i.imgur.com/AEIyR4L.png)
 
-## Spotify + Dashboard
+## Spotify + Typora
 
-![Dashboard](https://i.imgur.com/8BY7ujo.png)
+![Spotify + Typora](https://i.imgur.com/3Qrqo9r.png)
 
 To use the modfiles link/copy them to their intended destinations.
 
@@ -29,20 +33,39 @@ For example (for firefox) , you can copy/link the chrome folder in the [profile 
 The config files for the following are present in this repo:
 
 - Firefox Chrome Styling
-- i3, i3-bar, i3blocks, i3-switch
-- Custom GTK theme
-- Wallpaper and Lock background
+- i3, polybar
+- Custom GTK theme - oomox-xypu-gtx
+- Wallpaper (edited version of [Photo by Hiep Dai on Unsplash](https://unsplash.com/photos/Z0aBm6359Oo))
 - Alacritty
-- Zsh
+- Zsh (Using [prezto](https://github.com/sorin-ionescu/prezto) with [autosuggestions](https://github.com/sorin-ionescu/prezto/tree/master/modules/autosuggestions))
 
-The theme I use for VSCode is [Material Theme Ocean](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme).
+The theme I use for VSCode is [Material Ocean](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme).
 
 Icon Theme: [La Capitaine](https://github.com/keeferrourke/la-capitaine-icon-theme)
-Cursor Theme: [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)
+Cursor Theme: Breeze (preinstalled with Manjaro i3)
 
-I use prezto for zsh for the terminal. In my opinion, it is already pretty good with features and functionality such that I only need to modify a few aliasses while I use it. Hence I have not added the config for it. The aliases are present in `.zshrc`.
+I use prezto for zsh for the terminal with prezto default settings. In my opinion, it is already pretty good with features and functionality such that I only need to modify a few aliasses while I use it. Hence I have not added the config for it.
 
-The wallpaper is a modified version of a [witcher wallpaper I found online](https://wallpaperplay.com/walls/full/9/6/8/120747.jpg). The modified verion is present in this repo and also at [reddit's r/wallpapers](https://www.reddit.com/r/wallpapers/comments/eqeqx4/space_witcher_3840x2160/).
+## Neofetch
+
+```python
+xypnox@xypnox-xps
+-----------------
+OS: Manjaro Linux x86_64
+Host: XPS 15 9560
+Kernel: 5.9.16-1-MANJARO
+Uptime: 40 mins
+Shell: zsh 5.8
+Resolution: 1920x1080
+WM: i3
+Theme: oomox-xypu-gtx [GTK2/3]
+Icons: la-capitaine-icon-theme [GTK2/3]
+Terminal: alacritty
+CPU: Intel i7-7700HQ (8) @ 3.800GHz
+GPU: NVIDIA GeForce GTX 1050 Mobile
+GPU: Intel HD Graphics 630
+```
+
 
 ## Folder Icons
 
@@ -53,17 +76,7 @@ The wallpaper is a modified version of a [witcher wallpaper I found online](http
 - Icons made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a>  
 - Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a>
 
-## Scripts
-
-### i3-workspace-switch
-
-This is a custom switcher that I use to ease my own workflow. Usually I have a few workspaces open, and the last one holds the dash and spotify. With default workspace switch using `Meta+Shift+Tab` I can switch in regular circular manner. The modified switcher trumps the usual one by _skipping_ the last workspace. It switches as if the last workspace isn't there. Thus, If I have two or three main workspaces opened with the dash, I can switch between the main ones without switching to the supplementary workspace.
-
-People wondering how I would change songs on spotify? Either switch to the last workspace using `Meta+Num` or simply look at the status bar.
-
-### ytv
-
-This is a alias for [youtube-viewer](https://github.com/trizen/youtube-viewer) for use in rofi. If you run `ytv "youtube video url"`, It opens a portable player with the youtube video playing in it. It is not at all related to firefox or it's PIP mode. Suffice to say, advanced controls are available with this that simply do not exist in PIP.
+- I do not use these icons anymore as the default file manager in Manjaro i3: pcmanfm doesn't support custom folder icons. And given the simplicity of the default setup, I do not think adding another gui file manager would make sense just to get custom icons.
 
 ---
 
