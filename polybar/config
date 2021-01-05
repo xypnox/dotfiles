@@ -25,7 +25,7 @@ foreground = #8f93a2
 foreground-alt = #c792ea
 primary = #c792ea
 secondary = #e60053
-alert = #bd2c40
+alert = #ff5370
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -53,13 +53,13 @@ padding-right = 4
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Iosevka Term:pixelsize=10;1
-font-1 = Iosevka Term:fontformat=truetype:size=8:antialias=false;0
-font-2 = Iosevka Term:pixelsize=10;1
+font-0 = Iosevka NF:pixelsize=10;1
+font-1 = Iosevka NF:fontformat=truetype:size=8:antialias=false;0
+font-2 = Iosevka NF:pixelsize=10;1
 
 modules-left = i3
 modules-center = spotify-prev spotify spotify-next
-modules-right =  filesystem xbacklight pulseaudio memory cpu battery date
+modules-right =  filesystem pulseaudio battery date
 
 tray-position = right
 tray-padding = 4
@@ -262,7 +262,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = "%e %B, %A,"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
