@@ -25,7 +25,7 @@ foreground = #8f93a2
 foreground-alt = #c792ea
 primary = #c792ea
 secondary = #e60053
-alert = #ff5370
+alert = #252A41
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}

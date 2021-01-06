@@ -1,0 +1,61 @@
+COLORS
+
+These are an assorted collection of colors.
+
+You can use VSCode extension Colorize to see the colors in the editor by adding the `plaintext` langauge as one accepted by colorize.
+
+
+Main Scheme
+
+#C792EA #FF5370
+#0F111A #252A41 #3D435C
+#575C75 #73778C #B9BBC6
+#D5D6DD #EAEBED #F6F7F8
+
+
+Assorted colors
+
+#FF5370
+#F07178
+#FF9CAC
+#F78C6C
+#FFCB6B
+#FFCB6B
+#FFCC00
+#F6F7F8
+#EEFFFF
+#EAEBED
+#D5D6DD
+#CBCDD2
+#C3E88D
+#C3E88D
+#BEC1C7
+#C792EA
+#BB80B3
+#B9BBC6
+#B2CCD6
+#B0B3BC
+#A6ACCD
+#A1A4B0
+#916B53
+#8F93A2
+#89DDFF
+#82AAFF
+#80869E
+#80CBC4
+#7E818F
+#73778C
+#717CB4
+#686C77
+#575C75
+#4C4E58
+#4B526D
+#464B5D
+#3D435C
+#292D3E
+#252A41
+#1C1D21
+#1A1C25
+#141722
+#0F111A
+
