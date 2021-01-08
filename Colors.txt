@@ -12,6 +12,10 @@ Main Scheme
 #575C75 #73778C #B9BBC6
 #D5D6DD #EAEBED #F6F7F8
 
+Hello Darkness my old friend
+
+#0f111a #141724 #181B2A
+
 
 Assorted colors
 
