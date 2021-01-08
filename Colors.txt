@@ -7,7 +7,7 @@ You can use VSCode extension Colorize to see the colors in the editor by adding 
 
 Main Scheme
 
-#C792EA #FF5370
+#C792EA #FF5370 #8f93a2
 #0F111A #252A41 #3D435C
 #575C75 #73778C #B9BBC6
 #D5D6DD #EAEBED #F6F7F8
