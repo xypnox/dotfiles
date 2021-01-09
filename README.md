@@ -22,7 +22,7 @@ My system's dotfile :smile:
 
 ## Browser (_firefox_)
 
-![Firefox](https://i.imgur.com/AEIyR4L.png)
+![Firefox](https://i.imgur.com/WNh5831.png)
 
 ## Spotify + Typora
 
