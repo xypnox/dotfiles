@@ -14,7 +14,7 @@ My system's dotfile :smile:
 
 ## Rofi Launcher
 
-![Rofi launcher](https://i.imgur.com/LIqBPDO.png)
+![Rofi launcher](https://i.imgur.com/0qVZlIz.png)
 
 ## Code
 
