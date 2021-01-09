@@ -107,11 +107,8 @@ element {
 }
 
 element-icon {
-    size:                           32px;
-    background-color:               @bg;
+    size:                           48px;
     padding:                        1% 0.5% 1% 0.5%;
-    border-radius:                  50%;
-    border:                         0px;
 }
 
 element-text {

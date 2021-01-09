@@ -39,6 +39,7 @@ The config files for the following are present in this repo:
 - Custom GTK theme - oomox-xypu-gtx
 - Wallpaper (edited version of [Photo by Hiep Dai on Unsplash](https://unsplash.com/photos/Z0aBm6359Oo))
 - Alacritty
+- Icon Theme - Zenlism Wildfire
 - Zsh (Using [prezto](https://github.com/sorin-ionescu/prezto) with [autosuggestions](https://github.com/sorin-ionescu/prezto/tree/master/modules/autosuggestions))
 
 The theme I use for VSCode is [Material Ocean](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme).
