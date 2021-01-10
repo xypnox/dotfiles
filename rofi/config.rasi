@@ -108,6 +108,9 @@ element {
 
 element-icon {
     size:                           48px;
+    border-radius:                  24px;
+    background-color:               @bg;
+    margin:                         0.5%;
     padding:                        1% 0.5% 1% 0.5%;
 }
 
