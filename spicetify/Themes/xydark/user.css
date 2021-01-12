@@ -331,11 +331,15 @@ Change text color in playlist
   margin-top: -5px;
 }
 
+.album-art__background {
+  background-color: #0f111a;
+}
+
 /* Spice up Fullscreen mode */
 #view-player .album-art .album-art__image {
   border-radius: 30px !important;
   box-shadow: 0 10px 70px
-    rgba(var(--modspotify_rgb_cover_overlay_and_shadow), 0.5) !important;
+    rgba(var(--modspotify_main_fg), 0.5) !important;
 }
 
 #view-player .album-art .album-art__image .card-image-content-wrapper,
