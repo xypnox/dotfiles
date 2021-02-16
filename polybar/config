@@ -18,7 +18,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#0f111a}
-background = #800f111a
+background = #E60f111a
 background-alt = #0f111a
 ;foreground = ${xrdb:color7:#0f111a}
 foreground = #8f93a2
@@ -33,7 +33,7 @@ width = 100%
 height = 27
 ;offset-x = 2%
 ;offset-y = 2%
-radius = 14
+radius = 0
 fixed-center = true
 bottom = true
 enable-ipc = true
