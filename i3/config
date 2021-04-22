@@ -66,6 +66,8 @@ bindsym XF86AudioPrev exec playerctl previous -p spotify
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox 
 bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F4 exec slack
+bindsym $mod+Shift+n exec code $HOME/notes/dendron.code-workspace
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'

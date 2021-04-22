@@ -8,12 +8,12 @@
   > .tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[multiselected='true']:-moz-lwtheme,
+  > .tab-background[multiselected="true"]:-moz-lwtheme,
 #tabbrowser-tabs:not([movingtab])
   > .tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[selected='true']:-moz-lwtheme,
+  > .tab-background[selected="true"]:-moz-lwtheme,
 box {
   background-color: #0f111a !important;
   background-image: none !important;
@@ -23,8 +23,8 @@ box {
   --tab-min-width: 76px;
 }
 
-#urlbar:not(.megabar):not([focused='true']):-moz-lwtheme,
-#urlbar.megabar:not([focused='true']):-moz-lwtheme > #urlbar-background,
+#urlbar:not(.megabar):not([focused="true"]):-moz-lwtheme,
+#urlbar.megabar:not([focused="true"]):-moz-lwtheme > #urlbar-background,
 #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
 #navigator-toolbox {
   border: none !important;
@@ -47,12 +47,12 @@ box {
   > .tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[multiselected='true']:-moz-lwtheme,
+  > .tab-background[multiselected="true"]:-moz-lwtheme,
 #tabbrowser-tabs:not([movingtab])
   > .tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[selected='true']:-moz-lwtheme,
+  > .tab-background[selected="true"]:-moz-lwtheme,
 * {
   --tab-line-color: #ff5370;
   --tab-min-width: 76px;
@@ -64,8 +64,8 @@ box {
   background-color: #0f111ada !important;
 }
 
-#urlbar:not(.megabar):not([focused='true']):-moz-lwtheme,
-#urlbar.megabar:not([focused='true']):-moz-lwtheme > #urlbar-background,
+#urlbar:not(.megabar):not([focused="true"]):-moz-lwtheme,
+#urlbar.megabar:not([focused="true"]):-moz-lwtheme > #urlbar-background,
 #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
 #navigator-toolbox {
   border: none !important;
@@ -119,12 +119,12 @@ toolbox:focus-within > #nav-bar,
   > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[multiselected='true']:-moz-lwtheme,
+  > .tab-background[multiselected="true"]:-moz-lwtheme,
 #tabbrowser-tabs:not([movingtab])
   > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[selected='true']:-moz-lwtheme {
+  > .tab-background[selected="true"]:-moz-lwtheme {
   background-attachment: scroll, scroll, fixed;
   background-color: transparent;
   background-image: #0f111a !important;
@@ -136,11 +136,16 @@ toolbox:focus-within > #nav-bar,
   > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[multiselected='true']:-moz-lwtheme,
+  > .tab-background[multiselected="true"]:-moz-lwtheme,
 #tabbrowser-tabs:not([movingtab])
   > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[selected='true']:-moz-lwtheme {
+  > .tab-background[selected="true"]:-moz-lwtheme {
   background-image: none !important;
+}
+
+html[inFullscreen="true"] #urlbar,
+html[inFullscreen="true"] #navigator-toolbox {
+  display: none;
 }
