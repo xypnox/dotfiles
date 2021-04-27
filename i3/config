@@ -77,6 +77,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/screenshot_rect.sh
+bindsym $mod+Ctrl+Print --release exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 

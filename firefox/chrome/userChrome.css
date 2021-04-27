@@ -145,7 +145,14 @@ toolbox:focus-within > #nav-bar,
   background-image: none !important;
 }
 
-html[inFullscreen="true"] #urlbar,
-html[inFullscreen="true"] #navigator-toolbox {
-  display: none;
+html[inFullscreen="true"] #TabsToolbar {
+  margin-bottom: -100px !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+html[inFullscreen="true"] #TabsToolbar:focus-within {
+  height: 30px !important;
+  opacity: 1 !important;
+  margin-bottom: 30px !important;
 }
