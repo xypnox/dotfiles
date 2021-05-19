@@ -23,6 +23,10 @@ box {
   --tab-min-width: 76px;
 }
 
+#navigator-toolbox::after {
+  display: inline !important;
+}
+
 #urlbar:not(.megabar):not([focused="true"]):-moz-lwtheme,
 #urlbar.megabar:not([focused="true"]):-moz-lwtheme > #urlbar-background,
 #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme,
@@ -83,7 +87,6 @@ toolbox {
   z-index: 10;
   margin-top: 0px !important;
   margin-bottom: -30px !important;
-  height: 0 !important;
   pointer-events: none;
 }
 vbox {
@@ -91,9 +94,9 @@ vbox {
 }
 
 #nav-bar {
-  opacity: 0;
+  opacity: 1;
   transform-origin: 0 0;
-  pointer-events: none;
+  pointer-events: all;
   transition: transform, ease-in-out 0.2s, opacity 0.2s ease-in-out !important;
 }
 /* All the states in which the URL bar is visible */
@@ -114,7 +117,9 @@ toolbox:focus-within > #nav-bar,
 .tabbrowser-tab::before {
   border-left: none !important;
 }
-
+#tabbrowser-tabs {
+  display: none;
+}
 #tabbrowser-tabs:not([movingtab])
   > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
@@ -127,7 +132,7 @@ toolbox:focus-within > #nav-bar,
   > .tab-background[selected="true"]:-moz-lwtheme {
   background-attachment: scroll, scroll, fixed;
   background-color: transparent;
-  background-image: #0f111a !important;
+  /* background-image: #0f111a !important; */
   background-position: 0 0, 0 0, right top;
   background-repeat: repeat-x, repeat-x, no-repeat;
   background-size: auto 100%, auto 100%, auto auto;
@@ -204,4 +209,32 @@ html[inFullscreen="true"] #TabsToolbar:focus-within {
     (var(--wide-tab-width) - var(--thin-tab-width)) * -1
   ) !important;
   z-index: 1;
+}
+
+/* This positions the tabs under the navaigator container */
+#titlebar {
+  -moz-box-ordinal-group: 3 !important;
+}
+
+/* Upar sahi se */
+
+#nav-bar {
+  width: 100% !important;
+  margin-left: 8rem !important;
+  margin-right: 1rem !important;
+  margin-top: -30px !important;
+}
+
+#titlebar {
+  max-height: 32px !important;
+  margin-bottom: 0 !important;
+  height: 32px !important;
+}
+
+body > box:nth-child(10) {
+  height: 42px !important;
+}
+
+#titlebar-spacer {
+  display: none;
 }
