@@ -219,7 +219,7 @@ html[inFullscreen="true"] #TabsToolbar:focus-within {
 /* Upar sahi se */
 
 #nav-bar {
-  width: 100% !important;
+  width: calc(100% - 9rem) !important;
   margin-left: 8rem !important;
   margin-right: 1rem !important;
   margin-top: -30px !important;
@@ -237,4 +237,13 @@ body > box:nth-child(10) {
 
 #titlebar-spacer {
   display: none;
+}
+
+menupopup box.scrollbox-clip {
+  background: none;
+}
+
+.menupopup-arrowscrollbox {
+  padding: 0px !important;
+  color: #9196b3 !important;
 }
