@@ -66,6 +66,7 @@ box {
 #urlbar-background {
   border: none !important;
   background-color: #0f111ada !important;
+  backdrop-filter: blur(20px);
 }
 
 #urlbar:not(.megabar):not([focused="true"]):-moz-lwtheme,
