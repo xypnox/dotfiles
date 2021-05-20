@@ -163,8 +163,20 @@ html[inFullscreen="true"] #TabsToolbar:focus-within {
 }
 
 #sidebar {
-  width: 0px !important;
-  min-width: 0px !important;
+  display: inline-block;
+  min-width: 8rem !important;
+}
+
+#appcontent {
+  margin-left: 58px;
+}
+
+html[inFullscreen="true"] #sidebar {
+  min-width: 0rem !important;
+}
+
+html[inFullscreen="true"] #appcontent {
+  margin-left: 0px;
 }
 
 /* Hide splitter, when using Tree Style Tab. */
@@ -246,4 +258,16 @@ menupopup box.scrollbox-clip {
 .menupopup-arrowscrollbox {
   padding: 0px !important;
   color: #9196b3 !important;
+}
+
+/* Tweak nav and tab in fullscreen */
+
+html[inFullscreen="true"] #titlebar,
+html[inFullscreen="true"] #nav-bar {
+  width: 0px !important;
+  height: 0px !important;
+  overflow: hidden;
+}
+html[inFullscreen="true"] body > box:nth-child(10) {
+  height: 0px !important;
 }

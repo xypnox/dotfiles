@@ -97,10 +97,10 @@
   }
 
   /* Firefox applies dark colors to scrollbars in its in-content UI, when a
-      Dark theme is applied by the platform. On the other hand, dark colors
-      aren't applied to scrollbars in the sidebar also by default. Thus we need
-      to imitate dark scrollbar manually. See also:
-      https://github.com/piroor/treestyletab/issues/2373 */
+       Dark theme is applied by the platform. On the other hand, dark colors
+       aren't applied to scrollbars in the sidebar also by default. Thus we need
+       to imitate dark scrollbar manually. See also:
+       https://github.com/piroor/treestyletab/issues/2373 */
   #tabbar {
     scrollbar-color: var(--in-content-button-background-active-mixed)
       var(--in-content-box-background);
@@ -192,18 +192,13 @@ tab-item .label-content {
 
 tab-item.active {
   /* height: px !important; */
-  background-color: #9196b3;
+  background-color: #3b436680;
   border: none;
   border-left: 8px solid #ff5370;
 }
-tab-item.active .label-content {
-  color: #ff5370;
-  font-weight: bold;
-  font-size: 14px;
-}
-tab-item.active tab-twisty,
-tab-item.active .label-content,
-tab-item.active tab-counter {
+tab-item.active:hover tab-twisty,
+tab-item.active:hover .label-content,
+tab-item.active:hover tab-counter {
   color: #0f111a;
 }
 
@@ -240,4 +235,18 @@ tab-closebox {
 
 .tab .favicon .favicon-default::before {
   filter: grayscale(100%) invert(100%);
+}
+
+tab-twisty,
+tab-sound-button {
+  filter: invert(1) opacity(0.5);
+}
+tab-item.active:hover tab-twisty,
+tab-item.active:hover tab-sound-button {
+  filter: unset;
+}
+
+.newtab-button {
+  filter: invert(1);
+  padding: 0 0 1rem;
 }
