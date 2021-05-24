@@ -102,8 +102,7 @@
        to imitate dark scrollbar manually. See also:
        https://github.com/piroor/treestyletab/issues/2373 */
   #tabbar {
-    scrollbar-color: var(--in-content-button-background-active-mixed)
-      var(--in-content-box-background);
+    scrollbar-color: #3b4366 #0f111a;
   }
 }
 
