@@ -222,6 +222,7 @@ tab-item.active:hover {
 }
 
 tab-item {
+  margin-left: 0px;
 }
 
 tab-item[data-level]:not([data-level="0"]) {
