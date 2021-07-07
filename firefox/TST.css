@@ -97,10 +97,10 @@
   }
 
   /* Firefox applies dark colors to scrollbars in its in-content UI, when a
-       Dark theme is applied by the platform. On the other hand, dark colors
-       aren't applied to scrollbars in the sidebar also by default. Thus we need
-       to imitate dark scrollbar manually. See also:
-       https://github.com/piroor/treestyletab/issues/2373 */
+        Dark theme is applied by the platform. On the other hand, dark colors
+        aren't applied to scrollbars in the sidebar also by default. Thus we need
+        to imitate dark scrollbar manually. See also:
+        https://github.com/piroor/treestyletab/issues/2373 */
   #tabbar {
     scrollbar-color: #3b4366 #0f111a;
   }
@@ -225,8 +225,8 @@ tab-item {
   margin-left: 0px;
 }
 
-tab-item[data-level]:not([data-level="0"]) {
-  border-left: 2px solid #3b4366 !important;
+tab-item[data-level]:not([data-level="0"]) .indent {
+  border-right: 2px solid #3b4366 !important;
 }
 
 tab-closebox {
