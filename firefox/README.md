@@ -14,7 +14,7 @@ Configs and Styles: [[sys.dotfiles]] & https://github.com/xypnox/dotfiles/tree/m
   - [Screenshots](#screenshots)
   - [Notes](#notes)
     - [Shortcuts](#shortcuts)
-    - [How to search only in specific groups in the address bar](#how-to-search-only-in-specific-groups-in-the-address-bar)
+    - [Search bar filters: tabs, urls, bookmarks, history](#search-bar-filters-tabs-urls-bookmarks-history)
     - [How to set global zoom natively (without extensions)](#how-to-set-global-zoom-natively-without-extensions)
   - [Recommended extensions](#recommended-extensions)
     - [Generic](#generic)
@@ -31,21 +31,24 @@ Configs and Styles: [[sys.dotfiles]] & https://github.com/xypnox/dotfiles/tree/m
 `Ctrl+Shift+S` : Take Screenshots
 `F6` - Unfocus the Location bar
 
-### How to search only in specific groups in the address bar
+### Search bar filters: tabs, urls, bookmarks, history
 
 By typing in a particular character you may restrict the results with a filter, for instance
 
-- `#` matches only page titles
-- `^` History,
-- `@` Urls,
+- `%` Open tabs
+- `#` Page Titles
+- `^` History
+- `@` Urls
 - `-` Bookmarks
 
 ### How to set global zoom natively (without extensions)
 
 1. Enable [Browser Console command line](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console#Browser_Console_command_line), by setting `devtools.chrome.enabled` to `true` in about:config or setting the "Enable chrome debugging" option in the developer tools settings (F12).
 2. Open [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console#Opening_the_Browser_Console) (Ctrl + Shift + J).
-3. To set global zoom, where 1.33 is your desired zoom level, enter: FullZoom.\_cps2.setGlobal(FullZoom.name,1.33,gBrowser.selectedBrowser.loadContext);
-4. To reset global zoom back to default, enter: FullZoom.\_cps2.removeGlobal(FullZoom.name,gBrowser.selectedBrowser.loadContext);
+3. To set global zoom, where 1.33 is your desired zoom level, enter:
+   `FullZoom.\_cps2.setGlobal(FullZoom.name,1.33,gBrowser.selectedBrowser.loadContext);`
+4. To reset global zoom back to default, enter:
+   `FullZoom.\_cps2.removeGlobal(FullZoom.name,gBrowser.selectedBrowser.loadContext);`
 
 **Note:** for this to work, `browser.zoom.siteSpecific` must be set to `true` in about:config (the default is already `true`).
 
