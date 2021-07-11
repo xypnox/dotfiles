@@ -10,6 +10,21 @@ Configs and Styles: [[sys.dotfiles]] & https://github.com/xypnox/dotfiles/tree/m
 
 ![Expanded Tree style tabs](images/expanded_tst.png)
 
+- [Firefox](#firefox)
+  - [Screenshots](#screenshots)
+  - [Notes](#notes)
+    - [Shortcuts](#shortcuts)
+    - [How to search only in specific groups in the address bar](#how-to-search-only-in-specific-groups-in-the-address-bar)
+    - [How to set global zoom natively (without extensions)](#how-to-set-global-zoom-natively-without-extensions)
+  - [Recommended extensions](#recommended-extensions)
+    - [Generic](#generic)
+    - [Notes](#notes-1)
+    - [Dev](#dev)
+    - [Customization](#customization)
+  - [References and links](#references-and-links)
+
+## Notes
+
 ### Shortcuts
 
 `Ctrl+Shift+S` : Take Screenshots
@@ -37,11 +52,9 @@ By typing in a particular character you may restrict the results with a filter, 
 
 [Source Meta.](https://www.reddit.com/r/firefox/comments/8kmryx/how_to_set_global_zoom_natively_without_extensions/)
 
-## Web standards
-
-Firefox implements and adheres to the webstandards, whereas Chrome (and chromium based browsers) implement the new web features with their own custom APIs. Google uses these in their applications and recommends other to do so as well. Resulting in applications that run on browsers that don't follow the web standards and applications that can't run on browsers that actually support the standards.
-
 ## Recommended extensions
+
+### Generic
 
 - [Vimium](https://github.com/philc/vimium)
   [[sys.app.vim]] commands for the browser. Navigation and Interaction are supported nicely.
@@ -49,22 +62,33 @@ Firefox implements and adheres to the webstandards, whereas Chrome (and chromium
   Use a tree to organize tabs. Collapse trees., manage according to projects, with infinite nesting. I usually reach 200+ tabs so getting an idea of how many tabs are open is tough, use the extension [Tab Count Icon](https://addons.mozilla.org/en-US/firefox/addon/tab-count-icon/).
 - [Tab Session manager](https://github.com/sienori/Tab-Session-Manager)
   Backup your session (open tabs and the tree) every 15 minutes, so any crash won't suck away your tabs into oblivion.
-- [Dark reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/)
-  For the dark. Smartly inverts the color scheme of the website to achieve dark mode. Passable darkmode without any efforts. (Does take some CPU usage.)
 - [UBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   Necessary. (Essential)
-- [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
-  Necessary because react is bad.
-- [Tabliss - New Tab](https://addons.mozilla.org/en-US/firefox/addon/tabliss/)
-  Suckless newtab screen. I usually keep the background one color and add a centered clock and dev quote.
-- [Hypothes.is bookmarklet](https://addons.mozilla.org/en-US/firefox/addon/hypothes-is-bookmarklet/)
-  Highlight and annotate any page on the web. Sync highlights, no restrictions, free API.
-- [Copy selection as markdown](https://addons.mozilla.org/en-US/firefox/addon/copy-selection-as-markdown/)
-  Helpful for note taking in markdown, but can be used everywhere markdown is used.
 - [Firefox Multi-Account Containers](https://addons.mozilla.org/en-GB/firefox/addon/multi-account-containers/)
   Useful for having different sessions without having multiple browsers or incognito. Create a container for one usecase and login on that. I use it for projects and work logins.
+
+### Notes
+
+- [Copy selection as markdown](https://addons.mozilla.org/en-US/firefox/addon/copy-selection-as-markdown/)
+  Helpful for note taking in markdown, but can be used everywhere markdown is used.
+- [Hypothes.is bookmarklet](https://addons.mozilla.org/en-US/firefox/addon/hypothes-is-bookmarklet/)
+  Highlight and annotate any page on the web. Sync highlights, no restrictions, free API.
+
+### Dev
+
+- [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+  Necessary because react is bad.
+- [Dark reader](https://addons.mozilla.org/en-US/firefox/addon/darkreader/)
+  For the dark. Smartly inverts the color scheme of the website to achieve dark mode. Passable darkmode without any efforts. (Does take some CPU usage.)
+
+### Customization
+
+- [Tabliss - New Tab](https://addons.mozilla.org/en-US/firefox/addon/tabliss/)
+  Suckless newtab screen. I usually keep the background one color and add a centered clock and dev quote.
 - [Enhancer for YouTube](https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/)
   Allows some neat enhancements such as 5x speeds ±0.1x, Expand mode where the video takes as much screen as possible.
+- [Stylus](https://github.com/openstyles/stylus)
+  Style any site with custom css. Change colors and themes altogether.
 
 ## References and links
 
