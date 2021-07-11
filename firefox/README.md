@@ -21,6 +21,7 @@ Configs and Styles: [[sys.dotfiles]] & https://github.com/xypnox/dotfiles/tree/m
     - [Notes](#notes-1)
     - [Dev](#dev)
     - [Customization](#customization)
+    - [Youtube](#youtube)
   - [References and links](#references-and-links)
 
 ## Notes
@@ -85,10 +86,13 @@ By typing in a particular character you may restrict the results with a filter, 
 
 - [Tabliss - New Tab](https://addons.mozilla.org/en-US/firefox/addon/tabliss/)
   Suckless newtab screen. I usually keep the background one color and add a centered clock and dev quote.
-- [Enhancer for YouTube](https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/)
-  Allows some neat enhancements such as 5x speeds ±0.1x, Expand mode where the video takes as much screen as possible.
 - [Stylus](https://github.com/openstyles/stylus)
   Style any site with custom css. Change colors and themes altogether.
+
+### Youtube
+
+- [Enhancer for YouTube](https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/)
+  Allows some neat enhancements such as 5x speeds ±0.1x, Expand mode where the video takes as much screen as possible.
 
 ## References and links
 
