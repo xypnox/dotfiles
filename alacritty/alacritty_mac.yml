@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 12
-    y: 12
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -96,10 +96,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Iosevka
+    family: "Iosevka Nerd Font"
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    weight: 200
 
   # Bold font face
   bold:
@@ -110,7 +110,7 @@ font:
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
-    style: normal
+    style: bold
 
   # Italic font face
   #italic:
@@ -130,14 +130,14 @@ font:
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 0
+    y: 2
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upwards.
   glyph_offset:
     x: 0
-    y: 0
+    y: 1
 
   # Thin stroke font rendering (macOS only)
   #
@@ -158,74 +158,136 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
+schemes:
+  # Tokyo Night theme, based on both:
+  #   https://github.com/ghifarit53/tokyonight-vim
+  #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '0x0f111a'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
 # Colors (Tomorrow Night Bright)
-colors:
-  # Default colors
-  primary:
-    background: "0x0f111a"
-    foreground: "0x8f93a2"
-
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
-
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area. If selection
-  # background is unset, selection color will be the inverse of the cell colors.
-  # If only text is unset the cell text color will remain the same.
-  #selection:
-  #  text: '0xeaeaea'
-  #  background: '0x404040'
-
-  # Normal colors
-  normal:
-    black: "0x1c1d21"
-    red: "0xff5370"
-    green: "0xc3e88d"
-    yellow: "0xffcb6b"
-    blue: "0xc792ea"
-    magenta: "0xf07178"
-    cyan: "0x89ddff"
-    white: "0xcbcdd2"
-
-  # Bright colors
-  bright:
-    black: "0xbabcc4"
-    red: "0xff5370"
-    green: "0xc3e88d"
-    yellow: "0xffcb6b"
-    blue: "0xc792ea"
-    magenta: "0xf07178"
-    cyan: "0x89ddff"
-    white: "0xcbcdd2"
-
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
-
+# colors:
+#   # Default colors
+#   primary:
+#     background: "0x0f111a"
+#     foreground: "0x8f93a2"
+#
+#     # Bright and dim foreground colors
+#     #
+#     # The dimmed foreground color is calculated automatically if it is not present.
+#     # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+#     # is `false`, the normal foreground color will be used.
+#     #dim_foreground: '0x9a9a9a'
+#     #bright_foreground: '0xffffff'
+#
+#   # Cursor colors
+#   #
+#   # Colors which should be used to draw the terminal cursor. If these are unset,
+#   # the cursor color will be the inverse of the cell color.
+#   #cursor:
+#   #  text: '0x000000'
+#   #  cursor: '0xffffff'
+#
+#   # Selection colors
+#   #
+#   # Colors which should be used to draw the selection area. If selection
+#   # background is unset, selection color will be the inverse of the cell colors.
+#   # If only text is unset the cell text color will remain the same.
+#   #selection:
+#   #  text: '0xeaeaea'
+#   #  background: '0x404040'
+#
+#   # Normal colors
+#   normal:
+#     black: "0x1c1d21"
+#     red: "0xff5370"
+#     green: "0xc3e88d"
+#     yellow: "0xffcb6b"
+#     blue: "0xc792ea"
+#     magenta: "0xf07178"
+#     cyan: "0x89ddff"
+#     white: "0xcbcdd2"
+#
+#   # Bright colors
+#   bright:
+#     black: "0xbabcc4"
+#     red: "0xff5370"
+#     green: "0xc3e88d"
+#     yellow: "0xffcb6b"
+#     blue: "0xc792ea"
+#     magenta: "0xf07178"
+#     cyan: "0x89ddff"
+#     white: "0xcbcdd2"
+#
+#   # Dim colors
+#   #
+#   # If the dim colors are not set, they will be calculated automatically based
+#   # on the `normal` colors.
+#   #dim:
+#   #  black:   '0x000000'
+#   #  red:     '0x8c3336'
+#   #  green:   '0x7a8530'
+#   #  yellow:  '0x97822e'
+#   #  blue:    '0x506d8f'
+#   #  magenta: '0x80638e'
+#   #  cyan:    '0x497e7a'
+#   #  white:   '0x9a9a9a'
+#
+## normal dark theme
+colors: *tokyo-night
   # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
@@ -234,7 +296,7 @@ colors:
   # Example:
   #   `- { index: 16, color: '0xff00ff' }`
   #
-  indexed_colors: []
+  # indexed_colors: []
 
 # Visual Bell
 #
@@ -266,7 +328,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 1
 
 # Mouse bindings
 #
@@ -310,8 +372,8 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    #launcher:
-    #  program: xdg-open
+    launcher:
+      program: open
     #  args: []
 
     # URL modifiers
