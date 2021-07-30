@@ -53,7 +53,7 @@ Older versions of the theme can be found in commit history and some files not us
 
 ## Neofetch
 
-```python
+```
 xypnox@xypnox-xps
 -----------------
 OS: Manjaro Linux x86_64
@@ -71,6 +71,25 @@ GPU: NVIDIA GeForce GTX 1050 Mobile
 GPU: Intel HD Graphics 630
 ```
 
+```
+                    'c.          apple@Apples-MacBook-Pro-2.local
+                 ,xNMM.          --------------------------------
+               .OMMMMo           OS: macOS 11.4 20F71 x86_64
+               OMMM0,            Host: MacBookPro16,1
+     .;loddo:' loolloddol;.      Kernel: 20.5.0
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 4 days, 2 hours
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 126 (port), 114 (brew)
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.8
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 2560x1440
+:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Amethyst
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Terminal: alacritty
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   CPU: Intel i7-9750H (12) @ 2.60GHz
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   GPU: Intel UHD Graphics 630, AMD Radeon Pro 5300M
+    kMMMMMMMMMMMMMMMMMMMMMMd     Memory: 13922MiB / 32768MiB
+     ;KMMMMMMMWXXWMMMMMMMk.
+       .cooc,.    .,coo:.
+```
 
 ## Folder Icons
 
@@ -78,13 +97,26 @@ GPU: Intel HD Graphics 630
 
 **Attributions for the original Icons:**
 
-- Icons made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a>  
-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a>
+- Icons made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
+- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 
 - I do not use these icons anymore as the default file manager in Manjaro i3: pcmanfm doesn't support custom folder icons. And given the simplicity of the default setup, I do not think adding another gui file manager would make sense just to get custom icons.
 
 ---
 
-### Copy vs Link
+# Setup
+
+## Copy vs Link
 
 You can either copy the configuration files to their specific locations or make symlinks in those locations. The advantage of symlinks is that all the config files remain in one folder and monitoring the changes becomes easy.
+
+## Linking files
+
+It is recommended to keep the dotfiles in `~` and then link the respective configs to their locations via Soft Links.
+
+### Soft link
+
+`ln -s /path/to/original /path/to/link`
+
+Skip `-s` for a hard link.
+
