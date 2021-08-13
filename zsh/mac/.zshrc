@@ -28,3 +28,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load vim keybinding
 . "${HOME}/dotfiles/zsh/vim.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

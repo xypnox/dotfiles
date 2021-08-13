@@ -7,12 +7,14 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align' " Align items in columns with separators
+" EDITING
 
-" Plugin outside ~/.vim/plugged with post-update hook
+" Align items in columns with separators
+Plug 'junegunn/vim-easy-align'
+
 Plug 'junegunn/fzf', { 'dir': '~/fzf', 'do': './install --all' }
 
+Plug 'tpope/vim-surround'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " We recommend updating the parsers on update
