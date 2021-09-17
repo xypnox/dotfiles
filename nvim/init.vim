@@ -20,6 +20,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " We recommend updating the parsers on update
 
 
+" Utilsnips
+Plug 'SirVer/ultisnips'
+
 "
 " Theming
 "
@@ -68,6 +71,12 @@ set ts=4 sts=4 sw=4 expandtab
 syntax enable
 " File type identification, plugin and indenting
 filetype plugin indent on
+
+" Wordwrap
+set breakindent
+set formatoptions=l
+set lbr
+
 
 "       RUST        "
 " Rust analyzer
@@ -183,6 +192,13 @@ autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 
 " Trim whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Ultisnips
+
+
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Easy Align
 "

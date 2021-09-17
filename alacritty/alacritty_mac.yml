@@ -96,10 +96,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: "Iosevka"
+    family: "Iosevka Nerd Font"
 
     # The `style` can be specified to pick a specific face.
-    weight: 200
+    # style: Regular
 
   # Bold font face
   bold:
@@ -110,7 +110,7 @@ font:
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
-    style: bold
+    style: Semi Bold
 
   # Italic font face
   #italic:
@@ -124,7 +124,7 @@ font:
   #style: Italic
 
   # Point size
-  size: 14.0
+  size: 15.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -328,7 +328,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1
+background_opacity: 1.0
 
 # Mouse bindings
 #
