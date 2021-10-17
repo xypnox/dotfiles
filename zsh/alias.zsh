@@ -8,6 +8,7 @@ alias gst='git status'
 
 alias gaa='git add --all'
 alias gc='git commit'
+alias gac='git add --all && git commit'
 
 alias gco='git checkout'
 alias gcb='git checkout -b'
@@ -29,8 +30,8 @@ alias nv='nvim'
 # Opening config `cfg` files
 
 # neovim
-alias cfg-nvim='nvim ~/.config/nvim/init.vim'
+alias config-nvim='nvim ~/.config/nvim/init.vim'
 # alias
-alias cfg-alias='nvim ~/dotfiles/zsh/alias.zsh'
+alias config-alias='nvim ~/dotfiles/zsh/alias.zsh'
 
 

@@ -7,12 +7,14 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
+"
 " EDITING
-
+"
 " Align items in columns with separators
 Plug 'junegunn/vim-easy-align'
 
-Plug 'junegunn/fzf', { 'dir': '~/fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/fzf', 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-surround'
 " Treesitter
@@ -23,28 +25,30 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Utilsnips
 Plug 'SirVer/ultisnips'
 
+" Neoformat
+Plug 'sbdchd/neoformat'
+
 "
 " Theming
 "
-
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Syntax Theme
 Plug 'ghifarit53/tokyonight-vim'
+
+Plug 'preservim/nerdtree'
 
 "
 " USABILITY
 "
-
 " Zen mode for vim -- configs below
 Plug 'folke/zen-mode.nvim'
 
-
 "
-" RUST
+" LSP
 "
-
 " Collection of common configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 " Extensions to built-in LSP, for example, providing type inlay hints
@@ -52,20 +56,87 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 " Autocompletion framework for built-in LSP
 Plug 'nvim-lua/completion-nvim'
 
+
+" Snippet engine
+Plug 'hrsh7th/vim-vsnip'
+
+" Completion framework
+Plug 'hrsh7th/nvim-cmp'
+
+" LSP completion source for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+"
+" RUST
+"
 " rust.vim
 Plug 'rust-lang/rust.vim'
 
+" Rust object notation
+Plug 'ron-rs/ron.vim'
+
+"
+" TOML
+"
+Plug 'cespare/vim-toml', { 'branch' : 'main' }
 " Initialize plugin system
 call plug#end()
 
 
 "
+" Prettier
+"
+Plug 'prettier/vim-prettier', {
+            \ 'do': 'yarn install',
+            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+"
 " Configuration
 "
 
+lua require("lsp-config")
+
+
+" Setup Completion
+" See https://github.com/hrsh7th/nvim-cmp#basic-configuration
+lua <<EOF
+local cmp = require'cmp'
+cmp.setup({
+-- Enable LSP snippets
+snippet = {
+    expand = function(args)
+    vim.fn["vsnip#anonymous"](args.body)
+end,
+},
+  mapping = {
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      -- Add tab support
+      ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+      ['<Tab>'] = cmp.mapping.select_next_item(),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+      })
+  },
+
+  -- Installed sources
+  sources = {
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' },
+      { name = 'path' },
+      { name = 'buffer' },
+      },
+  })
+EOF
 
 " Indentation of four spaces
 set ts=4 sts=4 sw=4 expandtab
+set number relativenumber
 
 " Enable syntax highlighting
 syntax enable
@@ -77,7 +148,23 @@ set breakindent
 set formatoptions=l
 set lbr
 
+" Formatting
+"
+" Enable alignment
+let g:neoformat_basic_format_align = 1
 
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+
+" Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+
+augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+nnoremap <space>s :GFiles<CR>
 "       RUST        "
 " Rust analyzer
 
@@ -90,63 +177,6 @@ set completeopt=menuone,noinsert,noselect
 
 " Avoid showing extra messages when using completion
 set shortmess+=c
-
-" Configure LSP
-" https://github.com/neovim/nvim-lspconfig#rust_analyzer
-lua <<EOF
-
-local nvim_lsp = require('lspconfig')
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD',        '<Cmd>lua vim.lsp.buf.declaration()<CR>',                                opts)
-  buf_set_keymap('n', 'gd',        '<Cmd>lua vim.lsp.buf.definition()<CR>',                                 opts)
-  buf_set_keymap('n', 'K',         '<Cmd>lua vim.lsp.buf.hover()<CR>',                                      opts)
-  buf_set_keymap('n', 'gi',        '<cmd>lua vim.lsp.buf.implementation()<CR>',                             opts)
-  buf_set_keymap('n', '<C-k>',     '<cmd>lua vim.lsp.buf.signature_help()<CR>',                             opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',                       opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                    opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>',                            opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>',                                     opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',                                opts)
-  buf_set_keymap('n', 'gr',        '<cmd>lua vim.lsp.buf.references()<CR>',                                 opts)
-  buf_set_keymap('n', '<space>e',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',               opts)
-  buf_set_keymap('n', '[d',        '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',                           opts)
-  buf_set_keymap('n', ']d',        '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',                           opts)
-  buf_set_keymap('n', '<space>q',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',                         opts)
-  buf_set_keymap("n", "<space>f",  "<cmd>lua vim.lsp.buf.formatting()<CR>",                                 opts)
-
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {
-    "rust_analyzer",
---  "pyright",
---  "tsserver"
-}
-
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
-EOF
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -170,6 +200,9 @@ imap <S-Tab> <Plug>(completion_smart_s_tab)
 " nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
 "
 
+" NERDTree
+nnoremap <C-T> :NERDTreeFocus<CR>
+
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
@@ -186,7 +219,7 @@ set signcolumn=yes
 
 " Enable type inlay hints
 autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-\ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 " Editing Plugins
 
@@ -207,6 +240,13 @@ xmap ga <Plug>(EasyAlign)
 "
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Split switching
+nmap <silent> <C-S-w> :wincmd<Space>
+nmap <silent> <C-S-h> :wincmd h<CR>
+nmap <silent> <C-S-j> :wincmd j<CR>
+nmap <silent> <C-S-k> :wincmd k<CR>
+nmap <silent> <C-S-l> :wincmd l<CR>
 
 "
 " Theming
@@ -230,38 +270,38 @@ colorscheme tokyonight
 " Zen Mode Configuration
 lua << EOF
 require("zen-mode").setup {
--- your configuration comes here
--- or leave it empty to use the default settings
--- refer to the configuration section below
-  window = {
-    --backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-    -- height and width can be:
-    -- * an absolute number of cells when > 1
-    -- * a percentage of the width / height of the editor when <= 1
-    -- * a function that returns the width or the height
-    width = 120, -- width of the Zen window
-    height = 40, -- height of the Zen window
-    -- by default, no options are changed for the Zen window
-    -- uncomment any of the options below, or add other vim.wo options you want to apply
-    options = {
-      -- signcolumn = "no", -- disable signcolumn
-      -- number = false, -- disable number column
-      -- relativenumber = false, -- disable relative numbers
-      -- cursorline = false, -- disable cursorline
-      -- cursorcolumn = false, -- disable cursor column
-      -- foldcolumn = "0", -- disable fold column
-      -- list = false, -- disable whitespace characters
-    },
-  },
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    window = {
+        --backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- height and width can be:
+        -- * an absolute number of cells when > 1
+        -- * a percentage of the width / height of the editor when <= 1
+        -- * a function that returns the width or the height
+        width = 120, -- width of the Zen window
+        height = 40, -- height of the Zen window
+        -- by default, no options are changed for the Zen window
+        -- uncomment any of the options below, or add other vim.wo options you want to apply
+        options = {
+            -- signcolumn = "no", -- disable signcolumn
+            -- number = false, -- disable number column
+            -- relativenumber = false, -- disable relative numbers
+            -- cursorline = false, -- disable cursorline
+            -- cursorcolumn = false, -- disable cursor column
+            -- foldcolumn = "0", -- disable fold column
+            -- list = false, -- disable whitespace characters
+            },
+        },
 
-  plugins = {
-    -- disable some global vim options (vim.o...)
-    -- comment the lines to not apply the options
-    options = {
-      enabled = true,
-      ruler = true, -- disables the ruler text in the cmd line area
-      showcmd = false, -- disables the command in the last line of the screen
-    },
+    plugins = {
+        -- disable some global vim options (vim.o...)
+        -- comment the lines to not apply the options
+        options = {
+        enabled = true,
+        ruler = true, -- disables the ruler text in the cmd line area
+        showcmd = false, -- disables the command in the last line of the screen
+        },
     twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
     gitsigns = { enabled = false }, -- disables git signs
     tmux = { enabled = false }, -- disables the tmux statusline
@@ -270,10 +310,10 @@ require("zen-mode").setup {
     -- - allow_remote_control socket-only
     -- - listen_on unix:/tmp/kitty
     kitty = {
-      enabled = false,
-      font = "+4", -- font size increment
+    enabled = false,
+    font = "+4", -- font size increment
     },
-  },
+},
 
   -- callback where you can add custom code when the Zen window opens
   on_open = function(win)
@@ -281,5 +321,5 @@ require("zen-mode").setup {
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
   end,
-}
+  }
 EOF
