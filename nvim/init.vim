@@ -84,13 +84,6 @@ call plug#end()
 
 
 "
-" Prettier
-"
-Plug 'prettier/vim-prettier', {
-            \ 'do': 'yarn install',
-            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
-"
 " Configuration
 "
 
@@ -164,7 +157,8 @@ augroup fmt
     autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
-nnoremap <space>s :GFiles<CR>
+nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
+nnoremap <space>d :Files<CR>
 "       RUST        "
 " Rust analyzer
 
