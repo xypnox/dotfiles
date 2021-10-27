@@ -1,0 +1,12 @@
+{
+  "esll": {
+    "prefix": "esll",
+    "body": "// eslint-disable-line ${1:no-alert}",
+    "description": "ESlint disable error current line"
+  },
+  "Use theme props": {
+    "prefix": "tprop",
+    "body": "\\${({ theme }) => theme.${1}}",
+    "description": "Theme props"
+  }
+}

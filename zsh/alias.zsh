@@ -26,12 +26,16 @@ alias ys='yarn start'
 # Neovim
 alias nv='nvim'
 
+# Typora
+alias typora='open -a typora'
 
 # Opening config `cfg` files
 
 # neovim
-alias config-nvim='nvim ~/.config/nvim/init.vim'
+alias config-nvim='nvim ~/.config/nvim'
+
 # alias
 alias config-alias='nvim ~/dotfiles/zsh/alias.zsh'
 
-
+# alacritty
+alias config-alias='nvim ~/dotfiles/alacritty'

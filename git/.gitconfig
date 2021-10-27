@@ -1,0 +1,25 @@
+#
+#
+# DO NOT PUT ANY CREDENTIALS HERE
+# EVER
+#
+#
+
+[user]
+    name = xypnox
+    email = xypnox@gmail.com
+[pull]
+    rebase = false
+[commit]
+    verbose = true
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive

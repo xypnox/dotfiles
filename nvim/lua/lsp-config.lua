@@ -80,7 +80,7 @@ local linters = {
     eslint = {
         sourceName = "eslint",
         command = "eslint_d",
-        rootPatterns = {".eslintrc.js", "package.json"},
+        rootPatterns = {".eslintrc.json", "package.json"},
         debounce = 100,
         args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
         parseJson = {
@@ -92,7 +92,7 @@ local linters = {
             message = "${message} [${ruleId}]",
             security = "severity"
         },
-        securities = {[2] = "error", [1] = "warning"}
+        securities = {[1] = "error", [2] = "warning"}
     }
 }
 

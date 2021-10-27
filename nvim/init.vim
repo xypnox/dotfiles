@@ -12,21 +12,21 @@ call plug#begin('~/.local/share/nvim/plugged')
 "
 " Align items in columns with separators
 Plug 'junegunn/vim-easy-align'
-
 Plug 'junegunn/fzf', { 'dir': '~/fzf', 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
+
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " We recommend updating the parsers on update
 
-
-" Utilsnips
-Plug 'SirVer/ultisnips'
-
 " Neoformat
 Plug 'sbdchd/neoformat'
+
+" NerdCommenter
+Plug 'preservim/nerdcommenter'
 
 "
 " Theming
@@ -58,6 +58,7 @@ Plug 'nvim-lua/completion-nvim'
 
 
 " Snippet engine
+Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
 " Completion framework
@@ -65,6 +66,9 @@ Plug 'hrsh7th/nvim-cmp'
 
 " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
+
+" Typescript
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 "
 " RUST
@@ -88,44 +92,8 @@ call plug#end()
 "
 
 lua require("lsp-config")
+lua require("snip")
 
-
-" Setup Completion
-" See https://github.com/hrsh7th/nvim-cmp#basic-configuration
-lua <<EOF
-local cmp = require'cmp'
-cmp.setup({
--- Enable LSP snippets
-snippet = {
-    expand = function(args)
-    vim.fn["vsnip#anonymous"](args.body)
-end,
-},
-  mapping = {
-      ['<C-p>'] = cmp.mapping.select_prev_item(),
-      ['<C-n>'] = cmp.mapping.select_next_item(),
-      -- Add tab support
-      ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-      ['<Tab>'] = cmp.mapping.select_next_item(),
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-      })
-  },
-
-  -- Installed sources
-  sources = {
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' },
-      { name = 'path' },
-      { name = 'buffer' },
-      },
-  })
-EOF
 
 " Indentation of four spaces
 set ts=4 sts=4 sw=4 expandtab
@@ -136,10 +104,22 @@ syntax enable
 " File type identification, plugin and indenting
 filetype plugin indent on
 
+" JS
+"
+autocmd Filetype typescriptcommon setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype typescriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype javascriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 " Wordwrap
 set breakindent
 set formatoptions=l
 set lbr
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 " Formatting
 "
@@ -157,8 +137,44 @@ augroup fmt
     autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
+" Tags
+"
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+            \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+            \ 'javascript.jsx': 'jsxRegion',
+            \ 'typescriptreact': 'jsxRegion,tsxRegion',
+            \ 'javascriptreact': 'jsxRegion',
+            \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+
+" Fzf
+
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
 nnoremap <space>d :Files<CR>
+
+nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+
+"
 "       RUST        "
 " Rust analyzer
 
@@ -179,20 +195,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " use <Tab> as trigger keys
 imap <Tab> <Plug>(completion_smart_tab)
 imap <S-Tab> <Plug>(completion_smart_s_tab)
-
-" " Code navigation shortcuts
-" nnoremap <silent> <c-;> <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-"
-" nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
-"
 
 " NERDTree
 nnoremap <C-T> :NERDTreeFocus<CR>
@@ -220,12 +222,15 @@ autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 " Trim whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Ultisnips
+"
+" NERDcommenter
+"
 
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
 
 " Easy Align
 "
