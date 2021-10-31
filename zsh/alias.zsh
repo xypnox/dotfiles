@@ -38,4 +38,4 @@ alias config-nvim='nvim ~/.config/nvim'
 alias config-alias='nvim ~/dotfiles/zsh/alias.zsh'
 
 # alacritty
-alias config-alias='nvim ~/dotfiles/alacritty'
+alias config-alacritty='nvim ~/dotfiles/alacritty'

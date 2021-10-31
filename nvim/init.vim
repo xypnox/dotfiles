@@ -83,6 +83,23 @@ Plug 'ron-rs/ron.vim'
 " TOML
 "
 Plug 'cespare/vim-toml', { 'branch' : 'main' }
+"
+
+
+"
+" Markdown
+"
+
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+"
+" Wiki
+"
+
+Plug 'lervag/wiki.vim'
+
+
 " Initialize plugin system
 call plug#end()
 
@@ -118,8 +135,6 @@ set breakindent
 set formatoptions=l
 set lbr
 
-nnoremap <SPACE> <Nop>
-let mapleader = " "
 
 " Formatting
 "
@@ -132,10 +147,10 @@ let g:neoformat_basic_format_retab = 1
 " Enable trimmming of trailing whitespace
 let g:neoformat_basic_format_trim = 1
 
-augroup fmt
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" augroup fmt
+" autocmd!
+" autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 
 " Tags
 "
@@ -165,14 +180,28 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 
 
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 " Fzf
 
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
 nnoremap <space>d :Files<CR>
 
+" Split resizing
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
+" Format
+nnoremap <silent> <Leader>w :Neoformat<CR>
+
+" Save
+nnoremap <silent> <Leader>h :w<CR>
+
+" Copy to clipboard
+vmap <Leader>y "*y<CR>
+
+let g:wiki_root = '~/notes/vault/'
 
 "
 "       RUST        "
@@ -248,6 +277,24 @@ nmap <silent> <C-S-k> :wincmd k<CR>
 nmap <silent> <C-S-l> :wincmd l<CR>
 
 "
+" Markdown
+"
+
+let g:vim_markdown_frontmatter = 1
+
+highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
+highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
+
+"
+" Wiki
+"
+
+let g:wiki_root = '~/notes/vault/'
+let g:wiki_filetypes = ['md']
+let g:wiki_link_extension = '.md'
+
+
+"
 " Theming
 "
 
@@ -278,14 +325,14 @@ require("zen-mode").setup {
         -- * an absolute number of cells when > 1
         -- * a percentage of the width / height of the editor when <= 1
         -- * a function that returns the width or the height
-        width = 120, -- width of the Zen window
-        height = 40, -- height of the Zen window
+        width = 80, -- width of the Zen window
+        height = 50, -- height of the Zen window
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply
         options = {
             -- signcolumn = "no", -- disable signcolumn
-            -- number = false, -- disable number column
-            -- relativenumber = false, -- disable relative numbers
+            number = false, -- disable number column
+            relativenumber = false, -- disable relative numbers
             -- cursorline = false, -- disable cursorline
             -- cursorcolumn = false, -- disable cursor column
             -- foldcolumn = "0", -- disable fold column
