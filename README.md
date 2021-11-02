@@ -4,17 +4,16 @@ My system's dotfile :smile:
 
 # yabai (macOS)
 
-## neovim + alacritty
+![maxOS](https://i.imgur.com/0geuEDh.png)
 
-![neovim + alacritty](https://i.imgur.com/KEK0B4O.png)
+## neovim + firefox
+
+![neovim + firefox](https://i.imgur.com/iuC8R9m.png)
 
 ## telegram + spotify
 
 ![telegram + spotify](https://i.imgur.com/OZGQ0QS.png)
 
-## firefox
-
-![firefox](https://i.imgur.com/XQJBtr3.png)
 
 ## Details
 
@@ -26,6 +25,31 @@ The config files for the following are present in this repo:
 - Alacritty (alacritty_mac.yml)
 - neovim
 - Zsh (Using [prezto](https://github.com/sorin-ionescu/prezto) with [autosuggestions](https://github.com/sorin-ionescu/prezto/tree/master/modules/autosuggestions))
+
+## Neofetch
+
+```
+                    'c.          xypnox@xypnoxs-MacBook-Pro.local
+                 ,xNMM.          --------------------------------
+               .OMMMMo           OS: macOS 11.6 20G165 x86_64
+               OMMM0,            Host: MacBookPro16,1
+     .;loddo:' loolloddol;.      Kernel: 20.6.0
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 3 days, 36 mins
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 130 (brew)
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.8
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 2560x1440@2x
+:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: yabai
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Terminal: alacritty
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   CPU: Intel i7-9750H (12) @ 2.60GHz
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   GPU: Intel UHD Graphics 630, AMD Radeon Pro 5300M
+    kMMMMMMMMMMMMMMMMMMMMMMd     Memory: 9532MiB / 16384MiB
+     ;KMMMMMMMWXXWMMMMMMMk.
+       .cooc,.    .,coo:.
+
+
+       .cooc,.    .,coo:.
+```
 
 # i3wm (manjaro)
 
@@ -96,26 +120,6 @@ Terminal: alacritty
 CPU: Intel i7-7700HQ (8) @ 3.800GHz
 GPU: NVIDIA GeForce GTX 1050 Mobile
 GPU: Intel HD Graphics 630
-```
-
-```
-                    'c.          apple@Apples-MacBook-Pro-2.local
-                 ,xNMM.          --------------------------------
-               .OMMMMo           OS: macOS 11.4 20F71 x86_64
-               OMMM0,            Host: MacBookPro16,1
-     .;loddo:' loolloddol;.      Kernel: 20.5.0
-   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 4 days, 2 hours
- .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 126 (port), 114 (brew)
- XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.8
-;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 2560x1440
-:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
-.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Amethyst
- kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Terminal: alacritty
- .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   CPU: Intel i7-9750H (12) @ 2.60GHz
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   GPU: Intel UHD Graphics 630, AMD Radeon Pro 5300M
-    kMMMMMMMMMMMMMMMMMMMMMMd     Memory: 13922MiB / 32768MiB
-     ;KMMMMMMMWXXWMMMMMMMk.
-       .cooc,.    .,coo:.
 ```
 
 ## Folder Icons
