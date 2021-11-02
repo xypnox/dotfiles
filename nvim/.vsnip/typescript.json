@@ -4,6 +4,11 @@
     "body": "// eslint-disable-line ${1:no-alert}",
     "description": "ESlint disable error current line"
   },
+  "esla": {
+    "prefix": "esla",
+    "body": "// eslint-disable-line ${1:@typescript-eslint/no-explicit-any}",
+    "description": "ESlint disable error current line"
+  },
   "Use theme props": {
     "prefix": "tprop",
     "body": "\\${({ theme }) => theme.${1}}",

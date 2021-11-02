@@ -1,8 +1,35 @@
-![Manjaro Endgame](https://i.imgur.com/x6n6qk7.png)
-
 # dotfiles
 
 My system's dotfile :smile:
+
+# yabai (macOS)
+
+## neovim + alacritty
+
+![neovim + alacritty](https://i.imgur.com/KEK0B4O.png)
+
+## telegram + spotify
+
+![telegram + spotify](https://i.imgur.com/OZGQ0QS.png)
+
+## firefox
+
+![firefox](https://i.imgur.com/XQJBtr3.png)
+
+## Details
+
+The config files for the following are present in this repo:
+
+- Firefox Chrome Styling
+- yabai, skhdrc
+- Wallpaper
+- Alacritty (alacritty_mac.yml)
+- neovim
+- Zsh (Using [prezto](https://github.com/sorin-ionescu/prezto) with [autosuggestions](https://github.com/sorin-ionescu/prezto/tree/master/modules/autosuggestions))
+
+# i3wm (manjaro)
+
+![Manjaro Endgame](https://i.imgur.com/x6n6qk7.png)
 
 ## The Desktop
 
@@ -97,7 +124,7 @@ GPU: Intel HD Graphics 630
 
 **Attributions for the original Icons:**
 
-- Icons made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
+- Icons made by <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 - Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 
 - I do not use these icons anymore as the default file manager in Manjaro i3: pcmanfm doesn't support custom folder icons. And given the simplicity of the default setup, I do not think adding another gui file manager would make sense just to get custom icons.
@@ -119,4 +146,3 @@ It is recommended to keep the dotfiles in `~` and then link the respective confi
 `ln -s /path/to/original /path/to/link`
 
 Skip `-s` for a hard link.
-

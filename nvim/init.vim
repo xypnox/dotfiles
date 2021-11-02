@@ -115,6 +115,7 @@ lua require("snip")
 " Indentation of four spaces
 set ts=4 sts=4 sw=4 expandtab
 set number relativenumber
+set cursorline
 
 " Enable syntax highlighting
 syntax enable
@@ -282,8 +283,8 @@ nmap <silent> <C-S-l> :wincmd l<CR>
 
 let g:vim_markdown_frontmatter = 1
 
-highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
-highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
+autocmd FileType markdown highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
+autocmd FileType markdown highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
 
 "
 " Wiki
