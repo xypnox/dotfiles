@@ -184,10 +184,10 @@ let g:closetag_shortcut = '>'
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-" Fzf
-
+" fzf
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
 nnoremap <space>d :Files<CR>
+nnoremap <space>rg :Rg<CR>
 
 " Split resizing
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -262,6 +262,12 @@ let g:NERDSpaceDelims = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
 
+let g:NERDCustomDelimiters = {
+            \ 'tsx': { 'leftAlt': '{/*', 'rightAlt': '*/}', 'left': '//' },
+            \ }
+
+nnoremap <silent> <Leader>cx <Plug>NERDCommenterAltDelims
+
 " Easy Align
 "
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -272,16 +278,17 @@ nmap ga <Plug>(EasyAlign)
 
 " Split switching
 nmap <silent> <C-S-w> :wincmd<Space>
-nmap <silent> <C-S-h> :wincmd h<CR>
-nmap <silent> <C-S-j> :wincmd j<CR>
-nmap <silent> <C-S-k> :wincmd k<CR>
-nmap <silent> <C-S-l> :wincmd l<CR>
+nmap <silent> <Leader>bh :wincmd h<CR>
+nmap <silent> <Leader>bj :wincmd j<CR>
+nmap <silent> <Leader>bk :wincmd k<CR>
+nmap <silent> <Leader>bl :wincmd l<CR>
 
 "
 " Markdown
 "
 
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
 
 autocmd FileType markdown highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
 autocmd FileType markdown highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
@@ -327,7 +334,7 @@ require("zen-mode").setup {
         -- * a percentage of the width / height of the editor when <= 1
         -- * a function that returns the width or the height
         width = 80, -- width of the Zen window
-        height = 50, -- height of the Zen window
+        height = 40, -- height of the Zen window
         -- by default, no options are changed for the Zen window
         -- uncomment any of the options below, or add other vim.wo options you want to apply
         options = {
