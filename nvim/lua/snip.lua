@@ -28,5 +28,6 @@ end,
       { name = 'vsnip' },
       { name = 'path' },
       { name = 'buffer' },
+      { name = 'wiki_tags' },
       },
   })

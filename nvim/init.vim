@@ -1,35 +1,59 @@
+"
 " Neovim Configuration
 " by xypnox
 "
 "
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"
+" ╔═╗  ┬    ┬ ┬  ┌─┐  ┬  ┌┐┌  ┌─┐
+" ╠═╝  │    │ │  │ ┬  │  │││  └─┐
+" ╩    ┴─┘  └─┘  └─┘  ┴  ┘└┘  └─┘
+"
+"
+" Imports
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 call plug#begin('~/.local/share/nvim/plugged')
 
 "
 " EDITING
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " Align items in columns with separators
 Plug 'junegunn/vim-easy-align'
+"
+" fzf
 Plug 'junegunn/fzf', { 'dir': '~/fzf', 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Autoclose tags
 Plug 'alvan/vim-closetag'
+
+" Surround commands for ({[...
 Plug 'tpope/vim-surround'
 
-" Treesitter
+" treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" We recommend updating the parsers on update
 
-" Neoformat
+" multi-cursor
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" Git signs in buffer etc
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+
+" neoformat
 Plug 'sbdchd/neoformat'
 
-" NerdCommenter
-Plug 'preservim/nerdcommenter'
+" nerdcommenter
+" Plug 'preservim/nerdcommenter'
+" Plug 'numToStr/Comment.nvim'
+" Plug 'terrortylor/nvim-comment'
+Plug 'tpope/vim-commentary'
 
+" Show colors for hex
+Plug 'norcalli/nvim-colorizer.lua'
 "
 " Theming
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 "
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -38,17 +62,21 @@ Plug 'vim-airline/vim-airline-themes'
 " Syntax Theme
 Plug 'ghifarit53/tokyonight-vim'
 
+" Sidebar for tree files
 Plug 'preservim/nerdtree'
 
 "
 " USABILITY
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " Zen mode for vim -- configs below
 Plug 'folke/zen-mode.nvim'
 
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+
 "
 " LSP
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " Collection of common configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 " Extensions to built-in LSP, for example, providing type inlay hints
@@ -72,7 +100,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 "
 " RUST
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " rust.vim
 Plug 'rust-lang/rust.vim'
 
@@ -80,44 +108,63 @@ Plug 'rust-lang/rust.vim'
 Plug 'ron-rs/ron.vim'
 
 "
-" TOML
+" JS
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+" Comment strings inside tsx
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'MunifTanjim/nui.nvim' " Required by package-info
+Plug 'vuki656/package-info.nvim'
+
 "
+" TOML
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Plug 'cespare/vim-toml', { 'branch' : 'main' }
 "
 
 
 "
 " Markdown
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 "
 " Wiki
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Plug 'lervag/wiki.vim'
 
 
 "
 " CUSTOM PLUGINS
-"
-
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " Plug '~/Projects/notes.pro/cmp-wiki-para'
 
-
-
-" Initialize plugin system
 call plug#end()
 
 
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 "
-" Configuration
 "
+" ╔═╗  ┌─┐  ┌┐┌  ┌─┐  ┬  ┌─┐
+" ║    │ │  │││  ├┤   │  │ ┬
+" ╚═╝  └─┘  ┘└┘  └    ┴  └─┘
+"
+"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+"
+" Imports
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 lua require("lsp-config")
 lua require("snip")
+lua require("comments-config")
+lua require("treesitter-config")
+lua require("js-config")
+lua require("git-config")
+
 
 
 " Indentation of four spaces
@@ -128,17 +175,16 @@ set ignorecase
 
 " Enable syntax highlighting
 syntax enable
+
 " File type identification, plugin and indenting
 filetype plugin indent on
 
-" JS
-"
-autocmd Filetype typescriptcommon setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype typescriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" Enable mouse clicks to navigate
+set mouse=a
 
-autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype javascriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" have a fixed column for the diagnostics to appear in
+" this removes the jitter when warnings/errors flow in
+set signcolumn=yes
 
 " Wordwrap
 set breakindent
@@ -146,7 +192,11 @@ set formatoptions=l
 set lbr
 
 
+
+
+"
 " Formatting
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 "
 " Enable alignment
 let g:neoformat_basic_format_align = 1
@@ -157,13 +207,15 @@ let g:neoformat_basic_format_retab = 1
 " Enable trimmming of trailing whitespace
 let g:neoformat_basic_format_trim = 1
 
+
 " augroup fmt
 " autocmd!
 " autocmd BufWritePre * undojoin | Neoformat
 " augroup END
 
-" Tags
 "
+" Tags
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -189,6 +241,9 @@ let g:closetag_regions = {
 "
 let g:closetag_shortcut = '>'
 
+"
+" General Shortcuts
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 nnoremap <SPACE> <Nop>
 let mapleader = " "
@@ -203,7 +258,7 @@ nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Format
-nnoremap <silent> <Leader>w :Neoformat<CR>
+nnoremap <silent> <Leader>p :Neoformat<CR>
 
 " Save
 nnoremap <silent> <Leader>h :w<CR>
@@ -211,12 +266,20 @@ nnoremap <silent> <Leader>h :w<CR>
 " Copy to clipboard
 vmap <Leader>y "*y<CR>
 
-let g:wiki_root = '~/notes/vault/'
 
 "
-"       RUST        "
-" Rust analyzer
+" Multiediting
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+let g:VM_maps = {}
+let g:VM_leader                     = '\'
+let g:VM_maps['Toggle Single Region']        = ''
+" C-i because C-m was fucking weird with the <cr>
+let g:VM_maps['Find Under']         = '<C-i>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-i>'           " replace visual C-n
 
+"
+" AutoCompletion
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " Set completeopt to have a better completion experience
 " :help completeopt
 " menuone: popup even when there's only one match
@@ -235,26 +298,16 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 imap <Tab> <Plug>(completion_smart_tab)
 imap <S-Tab> <Plug>(completion_smart_s_tab)
 
+"
 " NERDTree
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 nnoremap <C-T> :NERDTreeFocus<CR>
 
-" Set updatetime for CursorHold
-" 300ms of no cursor movement to trigger CursorHold
-set updatetime=300
-" Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-" have a fixed column for the diagnostics to appear in
-" this removes the jitter when warnings/errors flow in
-set signcolumn=yes
-
-" Enable type inlay hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 " Editing Plugins
 
@@ -263,22 +316,23 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 "
 " NERDcommenter
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
 
 " Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
+" let g:NERDDefaultAlign = 'left'
 
-let g:NERDCustomDelimiters = {
-            \ 'tsx': { 'leftAlt': '{/*', 'rightAlt': '*/}', 'left': '//' },
-            \ }
+" let g:NERDCustomDelimiters = {
+"             \ 'tsx': { 'leftAlt': '{/*', 'rightAlt': '*/}', 'left': '//' },
+"             \ }
 
-nnoremap <silent> <Leader>cx <Plug>NERDCommenterAltDelims
+" nnoremap <silent> <Leader>cx <Plug>NERDCommenterAltDelims
 
-" Easy Align
 "
+" Easy Align
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 "
@@ -293,28 +347,102 @@ nmap <silent> <Leader>bk :wincmd k<CR>
 nmap <silent> <Leader>bl :wincmd l<CR>
 
 "
-" Markdown
 "
+"
+"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"
+"
+" ╦    ┌─┐  ┌┐┌  ┌─┐  ┬ ┬  ┌─┐  ┌─┐  ┌─┐  ┌─┐
+" ║    ├─┤  │││  │ ┬  │ │  ├─┤  │ ┬  ├┤   └─┐
+" ╩═╝  ┴ ┴  ┘└┘  └─┘  └─┘  ┴ ┴  └─┘  └─┘  └─┘
+"
+"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+"
+" RUST
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+" Rust analyzer
+"
+" Setup the basic settings for markdown editing
+function! SetupRust()
+    set ts=4 sts=4 sw=4 expandtab " Indent = 4
+    " Set updatetime for CursorHold
+    " 300ms of no cursor movement to trigger CursorHold
+    set updatetime=300
+    " Show diagnostic popup on cursor hold
+    " autocmd CursorHold * lua vim.lsp.diagnostic.open_float()
+
+    " Enable type inlay hints
+    autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+                \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+endfunction
+
+"
+" JS
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+autocmd Filetype typescriptcommon setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype typescriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype javascriptreact setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+"
+" Markdown
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_level = 3
+let g:vim_markdown_autowrite = 1
+" let g:vim_markdown_folding_disabled = 1
 
-autocmd FileType markdown highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
-autocmd FileType markdown highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
-autocmd FileType markdown highlight mkdBlockquote gui=italic guifg=#E17FC6 ctermfg=124
+" Setup the basic settings for markdown editing
+function! SetupMarkdown()
+    set ts=2 sts=2 sw=2 expandtab " Indent = 2
+
+    " Fancy colors for some elements
+    highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
+    highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
+    highlight mkdBlockquote gui=italic guifg=#E17FC6 ctermfg=124
+
+    nmap <silent> <Leader>t :Toc<CR>
+
+    " nmap <silent> <cr> :<plug>(wiki-link-follow)
+
+endfunction
+
+" We call the function here on every markdown file
+autocmd filetype markdown call SetupMarkdown()
+
 
 "
 " Wiki
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 let g:wiki_root = '~/notes/vault/'
 let g:wiki_filetypes = ['md']
 let g:wiki_link_extension = '.md'
 
 
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"
+"
+" ╔═╗  ┌┬┐  ┬ ┬  ┬    ┬  ┌┐┌  ┌─┐
+" ╚═╗   │   └┬┘  │    │  │││  │ ┬
+" ╚═╝   ┴    ┴   ┴─┘  ┴  ┘└┘  └─┘
+"
+"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 "
 " Theming
-"
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 set termguicolors
 
@@ -329,9 +457,17 @@ colorscheme tokyonight
 
 "
 " USABILITY
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+"
+" Colorizer
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+lua require('colorizer').setup()
+
 "
 
 " Zen Mode Configuration
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 lua << EOF
 require("zen-mode").setup {
     -- your configuration comes here
@@ -387,3 +523,4 @@ require("zen-mode").setup {
   end,
   }
 EOF
+
