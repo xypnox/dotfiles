@@ -100,6 +100,14 @@ Plug 'plasticboy/vim-markdown'
 Plug 'lervag/wiki.vim'
 
 
+"
+" CUSTOM PLUGINS
+"
+
+" Plug '~/Projects/notes.pro/cmp-wiki-para'
+
+
+
 " Initialize plugin system
 call plug#end()
 
@@ -116,6 +124,7 @@ lua require("snip")
 set ts=4 sts=4 sw=4 expandtab
 set number relativenumber
 set cursorline
+set ignorecase
 
 " Enable syntax highlighting
 syntax enable
@@ -187,7 +196,7 @@ let mapleader = " "
 " fzf
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
 nnoremap <space>d :Files<CR>
-nnoremap <space>rg :Rg<CR>
+nnoremap <space>r :Rg<CR>
 
 " Split resizing
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -292,6 +301,7 @@ let g:vim_markdown_folding_disabled = 1
 
 autocmd FileType markdown highlight htmlBold gui=bold guifg=#ff5370 ctermfg=124
 autocmd FileType markdown highlight htmlItalic gui=italic guifg=#E17FC6 ctermfg=124
+autocmd FileType markdown highlight mkdBlockquote gui=italic guifg=#E17FC6 ctermfg=124
 
 "
 " Wiki

@@ -1,0 +1,6 @@
+{
+  "frontmatter": {
+    "prefix": "frontmatter",
+    "body": ["${VIM:system('python3 ~/notes/scripts/genfrontmatter.py')}"]
+  }
+}

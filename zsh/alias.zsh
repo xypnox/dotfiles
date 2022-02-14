@@ -23,7 +23,11 @@ alias gcb='git checkout -b'
 alias gcr='git checkout -' # Checkout recent branch
 alias gct='git checkout --track'
 
+# List 10 most recent branches
+alias gbr='git branch --sort=-committerdate | head'
+
 alias gp='git push'
+# Push and create branch if not in upstream
 alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
 alias gpl='git pull'
 
@@ -47,6 +51,7 @@ alias nv='nvim'
 # Typora
 alias typora='open -a typora'
 
+alias nvn='z ~/notes && nvim ~/notes/vault/index.md'
 # Opening config `cfg` files
 
 # neovim
