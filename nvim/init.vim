@@ -40,6 +40,11 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
+" sneak to different locations via s
+Plug 'justinmk/vim-sneak'
+
+
+
 " neoformat
 Plug 'sbdchd/neoformat'
 
@@ -51,13 +56,15 @@ Plug 'tpope/vim-commentary'
 
 " Show colors for hex
 Plug 'norcalli/nvim-colorizer.lua'
+
 "
 " Theming
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 "
 " Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 
 " Syntax Theme
 Plug 'ghifarit53/tokyonight-vim'
@@ -73,6 +80,10 @@ Plug 'folke/zen-mode.nvim'
 
 " Fancy start screen
 Plug 'mhinz/vim-startify'
+
+" Smooth scrolling
+Plug 'karb94/neoscroll.nvim'
+
 
 "
 " LSP
@@ -91,6 +102,7 @@ Plug 'hrsh7th/vim-vsnip'
 
 " Completion framework
 Plug 'hrsh7th/nvim-cmp'
+
 
 " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -164,8 +176,11 @@ lua require("comments-config")
 lua require("treesitter-config")
 lua require("js-config")
 lua require("git-config")
+lua require('lualine-config')
 
-
+" Plugin Setups
+" (Only add when no config needed)
+lua require('neoscroll').setup()
 
 " Indentation of four spaces
 set ts=4 sts=4 sw=4 expandtab
@@ -208,11 +223,14 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
 
+" Sneak
+"
+let g:sneak#label = 1
 " augroup fmt
 " autocmd!
 " autocmd BufWritePre * undojoin | Neoformat
 " augroup END
-
+"
 "
 " Tags
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -274,8 +292,8 @@ let g:VM_maps = {}
 let g:VM_leader                     = '\'
 let g:VM_maps['Toggle Single Region']        = ''
 " C-i because C-m was fucking weird with the <cr>
-let g:VM_maps['Find Under']         = '<C-i>'           " replace C-n
-let g:VM_maps['Find Subword Under'] = '<C-i>'           " replace visual C-n
+let g:VM_maps['Find Under']         = '<C-s>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-s>'           " replace visual C-n
 
 "
 " AutoCompletion
@@ -449,7 +467,7 @@ set termguicolors
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_transparent_background = 1
-let g:airline_theme = "tokyonight"
+" let g:airline_theme = "tokyonight"
 let g:tokyonight_menu_selection_background = 'blue'
 
 colorscheme tokyonight
