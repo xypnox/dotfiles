@@ -5,6 +5,7 @@
 "
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 "
+"
 " ╔═╗  ┬    ┬ ┬  ┌─┐  ┬  ┌┐┌  ┌─┐
 " ╠═╝  │    │ │  │ ┬  │  │││  └─┐
 " ╩    ┴─┘  └─┘  └─┘  ┴  ┘└┘  └─┘
@@ -104,12 +105,22 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/nvim-cmp'
 
 
+" Copilot
+Plug 'github/copilot.vim'
+"
 " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
 
 " Typescript
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+" Go to Reference/Implementation Preview
+Plug 'rmagatti/goto-preview'
+
+
+" Show all the trouble the code is causing: errors and stuff from lsp
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
 "
 " RUST
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -141,12 +152,20 @@ Plug 'cespare/vim-toml', { 'branch' : 'main' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+Plug 'aserebryakov/vim-todo-lists'
+
 "
 " Wiki
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Plug 'lervag/wiki.vim'
 
+" Completion for wiki links
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" Autosave functionality
+Plug 'Pocco81/AutoSave.nvim'
 
 "
 " CUSTOM PLUGINS
@@ -176,6 +195,7 @@ lua require("comments-config")
 lua require("treesitter-config")
 lua require("js-config")
 lua require("git-config")
+lua require("copilot-config")
 lua require('lualine-config')
 
 " Plugin Setups
@@ -274,6 +294,8 @@ nnoremap <space>r :Rg<CR>
 " Split resizing
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+" nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+" nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Format
 nnoremap <silent> <Leader>p :Neoformat<CR>
@@ -364,6 +386,13 @@ nmap <silent> <Leader>bj :wincmd j<CR>
 nmap <silent> <Leader>bk :wincmd k<CR>
 nmap <silent> <Leader>bl :wincmd l<CR>
 
+" Trouble
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 "
 "
 "
@@ -397,6 +426,7 @@ function! SetupRust()
     " Enable type inlay hints
     autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
                 \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+
 endfunction
 
 "
@@ -415,12 +445,40 @@ autocmd Filetype javascriptreact setlocal expandtab tabstop=2 shiftwidth=2 softt
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_folding_level = 3
 let g:vim_markdown_autowrite = 1
-" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_folding_level = 4
+let g:vim_markdown_folding_disabled = 1
 
 " Setup the basic settings for markdown editing
 function! SetupMarkdown()
+    lua require("autosave-config")
+
+    set omnifunc=wiki#complete#omnicomplete
+    "     " enable ncm2 for wikilink completion for all buffers
+    "     augroup my_cm_setup
+    "         autocmd!
+    "         autocmd BufEnter * call ncm2#enable_for_buffer()
+    "         autocmd User WikiBufferInitialized call ncm2#register_source({
+    "                     \ 'name': 'wiki',
+    "                     \ 'priority': 9,
+    "                     \ 'scope': ['wiki'],
+    "                     \ 'word_pattern': '\w+',
+    "                     \ 'complete_pattern': '\[\[',
+    "                     \ 'on_complete': ['ncm2#on_complete#delay', 200,
+    "                     \                 'ncm2#on_complete#omni',
+    "                     \                 'wiki#complete#omnicomplete'],
+    "                     \})
+    "     augroup END
+
+    " " For highlighting wiki links [WIP]
+    " augroup mdkWikiLinks
+    "     au!
+    "     au Syntax * syn match mkdWikiLink start="\[\[" end="\]\]" contained oneline
+    " augroup END
+    " hi def link mkdWikiLink mkdLink
+    " highlight mkdWikiLink term=italic,bold cterm=italic ctermbg=darkyellow ctermfg=white gui=bold,italic guibg=darkyellow guifg=white
+
+
     set ts=2 sts=2 sw=2 expandtab " Indent = 2
 
     " Fancy colors for some elements

@@ -2,5 +2,17 @@
   "frontmatter": {
     "prefix": "frontmatter",
     "body": ["${VIM:system('python3 ~/notes/scripts/genfrontmatter.py')}"]
+  },
+  "library": {
+    "prefix": "library",
+    "body": [
+      "",
+      "Ref: [Reference]",
+      "Author: [Reference]",
+      "About: [Reference]",
+      "",
+      "## Highlights and Notes",
+      ""
+    ]
   }
 }

@@ -22,6 +22,7 @@ end,
       })
   },
 
+
   -- Installed sources
   sources = {
       { name = 'nvim_lsp' },

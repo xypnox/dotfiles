@@ -52,6 +52,7 @@ alias nv='nvim'
 alias typora='open -a typora'
 
 alias nvn='z ~/notes && nvim ~/notes/vault/index.md'
+
 # Opening config `cfg` files
 
 # neovim
