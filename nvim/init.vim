@@ -62,9 +62,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Theming
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 "
-" Airline
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+" Airline file statusbar
 Plug 'nvim-lualine/lualine.nvim'
 
 " Syntax Theme
