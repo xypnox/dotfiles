@@ -3,6 +3,32 @@
     "prefix": "frontmatter",
     "body": ["${VIM:system('python3 ~/notes/scripts/genfrontmatter.py')}"]
   },
+  "jlink": {
+    "prefix": "jlink",
+    "body": ["[[journal.${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE}]]"]
+  },
+  "scratch": {
+    "prefix": "scratch",
+    "body": [
+      "[[scratch.${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}.${RANDOM_HEX}]]"
+    ]
+  },
+  "meeting": {
+    "prefix": "meeting",
+    "body": [
+      "",
+      "On: [[journal.${CURRENT_YEAR}.${CURRENT_MONTH}.${CURRENT_DATE}]]",
+      "With: [[@.]]",
+      "",
+      "## Notes",
+      "",
+      "",
+      "## To Do",
+      "",
+      "## Highlights",
+      ""
+    ]
+  },
   "library": {
     "prefix": "library",
     "body": [

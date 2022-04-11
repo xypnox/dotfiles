@@ -31,6 +31,10 @@ alias gp='git push'
 alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
 alias gpl='git pull'
 
+# rebase
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
+
 # Yarn
 #
 alias ys='yarn start'
@@ -41,6 +45,7 @@ alias rmnmgco='rm -rf node_modules && git reset --hard && gco'
 
 # Mex
 alias rmmex='rm -rf ~/Library/Application\ Support/Mex'
+alias rmmexalpha='rm -rf ~/Library/Application\ Support/Mex\ Alpha'
 
 # JS
 alias rgcmt='rg "[^/][^/]\\s*console\.log" --sort path | cat'
@@ -51,7 +56,7 @@ alias nv='nvim'
 # Typora
 alias typora='open -a typora'
 
-alias nvn='z ~/notes && nvim ~/notes/vault/index.md'
+alias nvn='z ~/notes && nvim'
 
 # Opening config `cfg` files
 
