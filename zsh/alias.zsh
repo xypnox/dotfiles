@@ -24,7 +24,13 @@ alias gcr='git checkout -' # Checkout recent branch
 alias gct='git checkout --track'
 
 # List 10 most recent branches
-alias gbr='git branch --sort=-committerdate | head'
+# alias gbr='git branch --sort=-committerdate | head'
+# This new one shows it withot the * marker (easier to pipe for fzf -> git)
+alias gbr='git branch --sort=-committerdate --format="%(refname:short)" | head'
+#
+# Git branch switch
+# Shows the list of branches sorted by the latest commit date in fzf, to choose which one to switch to
+alias gbs='git branch --sort=-committerdate --format="%(refname:short)" | fzf | xargs git checkout'
 
 alias gp='git push'
 # Push and create branch if not in upstream
