@@ -53,6 +53,8 @@ alias rmnmgco='rm -rf node_modules && git reset --hard && gco'
 alias rmmex='rm -rf ~/Library/Application\ Support/Mex'
 alias rmmexalpha='rm -rf ~/Library/Application\ Support/Mex\ Alpha'
 
+alias backupmex='bash ~/dotfiles/scripts/backup_mex_mac.sh'
+
 # JS
 alias rgcmt='rg "[^/][^/]\\s*console\.log" --sort path | cat'
 
