@@ -103,11 +103,14 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/nvim-cmp'
 
 
-" Copilot
-Plug 'github/copilot.vim'
+" F*ck Copilot
+" Plug 'github/copilot.vim'
 "
 " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
+
+" Indent lines
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Typescript
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -193,7 +196,7 @@ lua require("comments-config")
 lua require("treesitter-config")
 lua require("js-config")
 lua require("git-config")
-lua require("copilot-config")
+lua require("indent-config")
 lua require('lualine-config')
 
 " Plugin Setups
@@ -337,6 +340,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " use <Tab> as trigger keys
 imap <Tab> <Plug>(completion_smart_tab)
 imap <S-Tab> <Plug>(completion_smart_s_tab)
+
+"
+" Folding
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+set foldmethod=indent
+set nofoldenable
+set foldlevel=99
 
 "
 " NERDTree
@@ -540,7 +550,6 @@ colorscheme tokyonight
 
 lua require('colorizer').setup()
 
-"
 
 " Zen Mode Configuration
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
