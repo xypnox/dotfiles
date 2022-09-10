@@ -1,0 +1,113 @@
+$iconSelector: "> .menu-iconic-left > .menu-iconic-icon";
+$checkedIconSelector: "> .menu-iconic-left[checked=\"true\"] > .menu-iconic-icon";
+
+/*- Radio Button ---------------------------------------------------------*/
+menuitem[type="radio"] {
+  @include Proton.RadioGlobal;
+
+  #{$iconSelector} {
+    @include Proton.RadioIcon;
+  }
+  #{$checkedIconSelector} {
+    @include Proton.RadioCheckedIcon;
+  }
+
+  &:not([disabled="true"]):hover {
+    #{$iconSelector} {
+      @include Proton.RadioIconHover;
+    }
+    &:active #{$iconSelector} {
+      @include Proton.RadioIconActive;
+    }
+  }
+
+  &:not([disabled="true"])[checked="true"]:hover {
+    #{$iconSelector} {
+      @include Proton.RadioCheckedIconHover;
+    }
+    &:active #{$iconSelector} {
+      @include Proton.RadioCheckedIconActive;
+    }
+  }
+
+  > .menu-iconic-text {
+    @include Proton.RadioLabel;
+  }
+}
+
+/* Disabled checkboxes, radios and labels */
+menuitem[type="radio"][disabled="true"],
+menuitem[type="checkbox"][disabled="true"] {
+  @include Proton.DisabledMenuItem;
+}
+
+/*- Check Box ------------------------------------------------------------*/
+/* From checkbox.css */
+menuitem[type="checkbox"] {
+  @include Proton.CheckboxGlobal(true);
+
+  #{$iconSelector} {
+    @include Proton.CheckboxIcon;
+  }
+  #{$checkedIconSelector} {
+    @include Proton.CheckboxCheckedIcon;
+  }
+
+  &:not([disabled="true"]):hover {
+    #{$iconSelector} {
+      @include Proton.CheckboxIconHover;
+    }
+    &:active #{$iconSelector} {
+      @include Proton.CheckboxIconActive;
+    }
+
+    #{$checkedIconSelector} {
+      @include Proton.CheckboxCheckedIconHover;
+    }
+    &:active #{$checkedIconSelector} {
+      @include Proton.CheckboxCheckedIconActive;
+    }
+  }
+
+  &:focus #{$iconSelector} {
+    @include Proton.CheckboxFocusRing;
+  }
+
+  @include Contrast {
+    &:not([disabled="true"]) #{$iconSelector} {
+      @include Proton.CheckboxIconHoverContrast;
+    }
+
+    > .menu-iconic-left[checked="true"] {
+      @include Proton.CheckboxCheckedIconContrast;
+    }
+
+    &:not([disabled="true"]):hover:active,
+    &:not([disabled="true"]):hover {
+      #{$checkedIconSelector} {
+        @include Proton.CheckboxCheckedIconHoverContrast;
+      }
+    }
+  }
+
+  > .menu-iconic-text {
+    @include Proton.ChexboxLabel;
+  }
+
+  &[disabled="true"] {
+    @include Proton.DisabledChexbox;
+  }
+}
+
+/*- Menu Separtor --------------------------------------------------------*/
+menuseparator {
+  appearance: none !important;
+  min-width: 2px;
+  min-height: 0;
+
+  border-top: 1px solid var(--in-content-box-border-color, ThreeDDarkShadow);
+  border-bottom: none;
+
+  padding: 0;
+  margin: var(--panel-separator-margin, 6px);
+}

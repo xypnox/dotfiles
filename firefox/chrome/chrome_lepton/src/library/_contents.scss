@@ -1,0 +1,27 @@
+@-moz-document url("chrome://browser/content/places/places.xhtml")
+{
+  /** Library - Icons Replace *************************************************/
+  @include Option("userChrome.icon.library") {
+    @import "folder_icons";
+    @import "menubar";
+  }
+
+  @include OS($linux) {
+    /*= Layout Fixes =========================================================*/
+    menupopup menu {
+      padding-block: 4px;
+    }
+
+    .menu-right {
+      width: 16px !important; /* Original: 1ex */
+      background-image: url("chrome://global/skin/icons/arrow-right.svg");
+      background-position: right center;
+    }
+
+    /*= Proton ===============================================================*/
+    @include Option("userContent.page.proton") {
+      @import "proton";
+      @import "proton_contents";
+    }
+  }
+}

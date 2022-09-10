@@ -1,0 +1,126 @@
+@import "./menu_common";
+
+//-- Mixin ---------------------------------------------------------------------
+// Components
+$_layoutCommonMenus: (
+  $_iconMenuPopupMenus,
+  $_libraryMenuitem,
+  $_libraryMenu,
+  $_sendTabMenuitem,
+  $_otherIconMenu
+);
+@mixin _layoutInitIconMenus() {
+  #{$_globalMenus},
+  #{$_nestedPopupIconMenus},
+  #{$_layoutCommonMenus} {
+    @content;
+  }
+}
+@mixin _layoutInitPaddingMenus() {
+  #{selector.nest($_nestedPopupPadding, "menuitem:not(.menuitem-iconic), menu:not(.menu-iconic)")},
+  #{$_nestedPopupPaddingMenus},
+  #{$_layoutCommonMenus} {
+    @content;
+  }
+}
+@mixin _layoutIconMenus() {
+  #{$_nestedPopupPaddingMenus},
+  #{$_layoutCommonMenus} {
+    @content;
+  }
+}
+
+//------------------------------------------------------------------------------
+
+#{$_initialMenus},
+#{$_globalMenus} {
+  @include _initial_menus;
+}
+
+/* Icon */
+@include _layoutInitIconMenus {
+  @include _layout_icon_menus;
+}
+
+/* For native context menus */
+#{$_nestedPopupIconMenus} {
+  @include _layout_icon_native_menus;
+}
+
+/* Padding */
+@include _layout_root_padding;
+@include _layoutInitPaddingMenus {
+  @include _layout_init_padding;
+}
+
+/* Menubar */
+@include Option("userChrome.icon.global_menubar") {
+  #{$_globalMenus} {
+    background-position: var(--uc-menu-background-position) var(--context-menu-background-padding-default) center !important;
+    padding-inline-start: calc(16px + var(--context-menu-background-padding-default)) !important;
+    padding-inline-end: 3px;
+
+    &:first-child {
+      background-position: var(--uc-menu-background-position) calc(3px + var(--context-menu-background-padding-default)) center !important;
+      padding-inline-start: calc(19px + var(--context-menu-background-padding-default)) !important;
+    }
+    > menupopup {
+      --menuitem-image: none; /* Prevent Image Inheritance */
+    }
+    @include NotOption("userChrome.padding.global_menubar") {
+      padding-block: 2px !important;
+    }
+  }
+}
+
+/* Padding - Windows */
+@include _layout_root_win7_8;
+@include OS($win7, $win8) {
+  @include _layoutIconMenus {
+    @include _layout_init_win7_8();
+  }
+}
+@include OS($win10) {
+  @include _layout_root_win10;
+
+  @include _layoutIconMenus {
+    @include _layout_init_win10;
+  }
+}
+
+/* Padding - Linux */
+@include OS($linux) {
+  @include _layout_root_linux;
+
+  #{$_globalMenus} > .menubar-text {
+    @include _layout_init_linux;
+  }
+}
+
+/* Padding - Mac */
+@include OS($mac) {
+  @include _layout_root_mac;
+
+  /* context menu width */
+  #{$_nestedPopupPaddingMenus},
+  #blockedPopupDontShowMessage {
+    @include _layout_init_mac_width;
+  }
+
+  /* text position */
+  #{selector.nest($_nestedPopupPadding, "menuitem > .menu-text, menu > .menu-text")} {
+    @include _layout_init_mac_text;
+  }
+
+  /* Checkbox menuitem, None iconic menu */
+  #{selector.nest($_nestedPopupPadding, "menuitem[checked=\"true\"], menu:not(.menu-iconic)")} {
+    @include _layout_init_mac_others;
+  }
+
+  /* Global Menu */
+  @include Option("userChrome.icon.global_menu.mac") {
+    #{selector.nest($_iconMenuPopup, "menuitem:not(.menuitem-iconic, .bookmark-item), menu:not(.menu-iconic)")} {
+      list-style-image: var(--menuitem-image, url("../icons/blank.svg")) !important;
+    }
+  }
+}

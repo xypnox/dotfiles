@@ -1,0 +1,44 @@
+/*= Tabs on Bottom ===========================================================*/
+@include Option("userChrome.tabbar.on_bottom", "userChrome.fullscreen.overlap") {
+  /* Don't use display: flex at not fullscreen!! side effect #372 */
+  :root[sizemode="fullscreen"] #navigator-toolbox {
+    display: flex !important; /* Needed for content to take up entire height, compatibility with tabs on bottom */
+    flex-wrap: wrap;
+  }
+  :root[sizemode="fullscreen"] #titlebar,
+  :root[sizemode="fullscreen"] #nav-bar,
+  :root[sizemode="fullscreen"] #PersonalToolbar,
+  :root[sizemode="fullscreen"] #tab-notification-deck,
+  :root[sizemode="fullscreen"] #tab-notification-deck-template {
+    flex-basis: 100%;
+  }
+
+  /* -moz-default-appearance: -moz-window-titlebar */
+  :root[sizemode="fullscreen"] #titlebar {
+    -moz-appearance: none !important;
+  }
+}
+
+@include Option("userChrome.tabbar.on_bottom") {
+  @include OneLinerOnBottom {
+    @import "on_bottom";
+  }
+}
+
+/*= Tab Bar - Oneliner =======================================================*/
+@include OneLiner {
+  @import "one_liner";
+}
+
+/*= Tab Bar - Shared Layout ==================================================*/
+@include Option("userChrome.tabbar.on_bottom", "userChrome.tabbar.one_liner", "userChrome.hidden.tabbar", "userChrome.tabbar.as_titlebar") {
+  @import "layout/window_control_size";
+}
+@include Option("userChrome.tabbar.on_bottom", "userChrome.tabbar.one_liner", "userChrome.hidden.tabbar") {
+  @import "layout";
+}
+
+/*= Tab Bar - Show only current tab ==========================================*/
+@include Option("userChrome.tabbar.as_titlebar") {
+  @import "as_titlebar";
+}
