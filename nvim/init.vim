@@ -103,8 +103,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/nvim-cmp'
 
 
-" F*ck Copilot
-" Plug 'github/copilot.vim'
+" ~~F*ck~~ Copilot is nice till its free
+Plug 'github/copilot.vim'
+
 "
 " LSP completion source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -198,6 +199,7 @@ lua require("js-config")
 lua require("git-config")
 lua require("indent-config")
 lua require('lualine-config')
+lua require('copilot-config')
 
 " Plugin Setups
 " (Only add when no config needed)
