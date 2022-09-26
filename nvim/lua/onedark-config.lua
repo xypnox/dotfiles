@@ -32,7 +32,7 @@ require('onedark').setup  {
         bg0    = "#0f111a",
 		bg1    = "#1B1E2D",
 		bg2    = "#272B40",
-		bg3    = "#3F4566",
+		bg3    = "#272B40",
         fg     = "#b1b9dc",
 		purple = "#a484dd",
         red    = "#ee6d85",
