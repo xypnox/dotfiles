@@ -39,6 +39,7 @@ require('onedark').setup  {
         blue   = "#7199ee",
 		grey   = "#404976",
 		cyan   = "#89DDFF",
+        yellow = "#d8a657"
     }, -- Override default colors
     highlights = {}, -- Override highlight groups
 
