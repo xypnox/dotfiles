@@ -41,7 +41,8 @@ require('onedark').setup  {
 		cyan   = "#89DDFF",
         yellow = "#d8a657"
     }, -- Override default colors
-    highlights = {}, -- Override highlight groups
+    highlights = {
+    }, -- Override highlight groups
 
     -- Plugins Config --
     diagnostics = {

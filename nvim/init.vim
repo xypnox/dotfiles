@@ -552,6 +552,10 @@ set termguicolors
 
 colorscheme onedark
 
+highlight IndentBlanklineChar guifg=#272B40 gui=nocombine
+
+
+
 "
 " USABILITY
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
