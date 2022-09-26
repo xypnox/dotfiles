@@ -41,6 +41,9 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
+" Git conflict markers and actions to resolve them
+Plug 'akinsho/git-conflict.nvim', { 'tag': '*' }
+
 " sneak to different locations via s
 Plug 'justinmk/vim-sneak'
 
@@ -66,7 +69,12 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
 " Syntax Theme
-Plug 'ghifarit53/tokyonight-vim'
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'navarasu/onedark.nvim'
+" Plug 'tiagovla/tokyodark.nvim'
+
+
 
 " Sidebar for tree files
 Plug 'preservim/nerdtree'
@@ -186,6 +194,10 @@ call plug#end()
 "
 "
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+" Make space the LEADER
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 "
@@ -200,6 +212,7 @@ lua require("git-config")
 lua require("indent-config")
 lua require('lualine-config')
 lua require('copilot-config')
+lua require('onedark-config')
 
 " Plugin Setups
 " (Only add when no config needed)
@@ -288,8 +301,6 @@ let g:closetag_shortcut = '>'
 " General Shortcuts
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-nnoremap <SPACE> <Nop>
-let mapleader = " "
 
 " fzf
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
@@ -359,6 +370,11 @@ nnoremap <C-T> :NERDTreeFocus<CR>
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+
+" Gitsigns
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+nnoremap <Leader>nn :Gitsigns preview_hunk<CR>
 
 
 " Editing Plugins
@@ -534,14 +550,7 @@ let g:wiki_link_extension = '.md'
 
 set termguicolors
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 1
-" let g:airline_theme = "tokyonight"
-let g:tokyonight_menu_selection_background = 'blue'
-
-colorscheme tokyonight
-
+colorscheme onedark
 
 "
 " USABILITY

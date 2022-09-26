@@ -22,6 +22,7 @@ require('gitsigns').setup {
     delay = 0,
     ignore_whitespace = false,
   },
+
   -- current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
   -- sign_priority = 6,
   -- update_debounce = 100,
@@ -38,4 +39,12 @@ require('gitsigns').setup {
   -- yadm = {
   --   enable = false
   -- },
+}
+
+require('git-conflict').setup {
+  default_mappings = false, -- disable buffer local mapping
+  highlights = { -- They must have background color, otherwise the default color will be used
+    incoming = 'DiffText',
+    current = 'DiffAdd',
+  }
 }
