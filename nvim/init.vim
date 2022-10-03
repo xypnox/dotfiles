@@ -175,7 +175,7 @@ Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 
 " Autosave functionality
-Plug 'Pocco81/AutoSave.nvim'
+" Plug 'Pocco81/auto-save.nvim'
 
 "
 " CUSTOM PLUGINS
@@ -301,6 +301,8 @@ let g:closetag_shortcut = '>'
 " General Shortcuts
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+" terminal
+tnoremap <Esc> <C-\><C-n>
 
 " fzf
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
@@ -479,7 +481,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " Setup the basic settings for markdown editing
 function! SetupMarkdown()
-    lua require("autosave-config")
+    "lua require("autosave-config")
 
     set omnifunc=wiki#complete#omnicomplete
     "     " enable ncm2 for wikilink completion for all buffers
@@ -517,7 +519,6 @@ function! SetupMarkdown()
     nmap <silent> <Leader>t :Toc<CR>
 
     " nmap <silent> <cr> :<plug>(wiki-link-follow)
-
 endfunction
 
 " We call the function here on every markdown file
