@@ -302,7 +302,8 @@ let g:closetag_shortcut = '>'
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 " terminal
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>
+" Conflicts with escape of fzf
 
 " fzf
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
