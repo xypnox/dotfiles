@@ -47,7 +47,9 @@ Plug 'akinsho/git-conflict.nvim', { 'tag': '*' }
 " sneak to different locations via s
 Plug 'justinmk/vim-sneak'
 
-
+" Todo comments
+" Requires plenary^
+Plug 'folke/todo-comments.nvim'
 
 " neoformat
 Plug 'sbdchd/neoformat'
@@ -213,6 +215,7 @@ lua require("indent-config")
 lua require('lualine-config')
 lua require('copilot-config')
 lua require('onedark-config')
+lua require('todo-comments-config')
 
 " Plugin Setups
 " (Only add when no config needed)
