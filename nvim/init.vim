@@ -389,6 +389,12 @@ nnoremap <Leader>nn :Gitsigns preview_hunk<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 
 "
+" NERDTree
+" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+nnoremap <Leader>t :NERDTreeFind<CR>
+
+
+"
 " NERDcommenter
 " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
