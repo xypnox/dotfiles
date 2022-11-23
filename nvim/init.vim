@@ -312,6 +312,7 @@ let g:closetag_shortcut = '>'
 nnoremap <space>s :GFiles --cached --others --exclude-standard<CR>
 nnoremap <space>d :Files<CR>
 nnoremap <space>r :Rg<CR>
+nnoremap <space>bb :Buffers<CR>
 
 " Split resizing
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
