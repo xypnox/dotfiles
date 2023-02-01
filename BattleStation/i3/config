@@ -22,7 +22,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Iosevka Term Regular 10
+font pango: IosevkaTerm Nerd Font 10
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -292,16 +292,16 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5:"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 " 1 "
+set $ws2 " 2 "
+set $ws3 " 3 "
+set $ws4 " 4 "
+set $ws5 " 5 "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 " 8 "
+set $ws9 " 9 "
+set $ws10 " 0 "
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -488,6 +488,7 @@ set $darkgrey		#383c4a
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
+set $transparent	#00000000 
 
 set $darkbg    		#0f111a
 set $magenta   		#ff5370
@@ -506,9 +507,10 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position bottom
-	    	i3bar_command i3bar --transparency
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+  separator_symbol "  "
+  position bottom
+  i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    #tray_output primary
@@ -525,9 +527,9 @@ strip_workspace_numbers no
 		    background         #00000000
 		    statusline         $white
 #                          		border 		        bg		txt		indicator
-		focused_workspace	$magenta	   	$darkbg		$magenta	$purple
-		active_workspace	$magenta      		$darkbg 	$magenta	$purple
-		inactive_workspace	$darkgrey   		$darkbg 	$grey		$purple
+		focused_workspace	$magenta	   	$transparent	$magenta	$purple
+		active_workspace	$magenta      		$transparent 	$magenta	$purple
+		inactive_workspace	$transparent   		$transparent 	$grey		$purple
 		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
 	}
 }
