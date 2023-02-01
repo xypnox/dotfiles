@@ -236,7 +236,11 @@ lvim.plugins = {
   },
 
   -- My own para plugin
-  { 'xypnox/cmp-wiki-para', }
+  {
+    'xypnox/cmp-wiki-para',
+    -- only for markdown files
+    ft = { 'markdown' },
+  }
 }
 
 
