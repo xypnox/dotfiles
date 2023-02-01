@@ -46,7 +46,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- Show better paths in the find file menu
-lvim.builtin.telescope.defaults.path_display = "smart"
+lvim.builtin.telescope.defaults.path_display = { "smart" }
 
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
@@ -169,6 +169,8 @@ lvim.builtin.treesitter.highlight.enable = true
 -- Additional Plugins
 lvim.plugins = {
   -- Copilot
+  { "github/copilot.vim" },
+
   {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -176,6 +178,9 @@ lvim.plugins = {
       vim.defer_fn(function()
         require("copilot").setup {
           plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+          suggestion = {
+            auto_trigger = true,
+          }
         }
       end, 100)
     end,
@@ -205,17 +210,17 @@ lvim.plugins = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-            window = {
-        --backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-        -- height and width can be:
-        -- * an absolute number of cells when > 1
-        -- * a percentage of the width / height of the editor when <= 1
-        -- * a function that returns the width or the height
-        width = 80, -- width of the Zen window
-        -- height = 40, -- height of the Zen window
-        -- by default, no options are changed for the Zen window
-        -- uncomment any of the options below, or add other vim.wo options you want to apply
-        options = {
+        window = {
+          --backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+          -- height and width can be:
+          -- * an absolute number of cells when > 1
+          -- * a percentage of the width / height of the editor when <= 1
+          -- * a function that returns the width or the height
+          width = 80, -- width of the Zen window
+          -- height = 40, -- height of the Zen window
+          -- by default, no options are changed for the Zen window
+          -- uncomment any of the options below, or add other vim.wo options you want to apply
+          options = {
             signcolumn = "no", -- disable signcolumn
             number = false, -- disable number column
             relativenumber = false, -- disable relative numbers
@@ -223,18 +228,24 @@ lvim.plugins = {
             -- cursorcolumn = false, -- disable cursor column
             -- foldcolumn = "0", -- disable fold column
             -- list = false, -- disable whitespace characters
-            },
+          },
         },
 
       }
     end
-  }
+  },
+
+  -- My own para plugin
+  { 'xypnox/cmp-wiki-para', }
 }
 
 
 -- Copilot setup for completion
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
+
+-- Insert the para completion source
+table.insert(lvim.builtin.cmp.sources, 1, { name = "vimwiki-para" })
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
