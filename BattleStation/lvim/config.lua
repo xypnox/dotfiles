@@ -45,6 +45,9 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   },
 -- }
 
+-- Show better paths in the find file menu
+lvim.builtin.telescope.defaults.path_display = "smart"
+
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
@@ -186,6 +189,11 @@ lvim.plugins = {
   -- Surround plugin to surround a vim object with symbols such as brackets
   {
     "tpope/vim-surround",
+  },
+
+  -- Ron File format
+  {
+    "ron-rs/ron.vim"
   },
 
 
