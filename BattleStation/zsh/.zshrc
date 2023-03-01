@@ -244,3 +244,4 @@ export NVM_DIR="$HOME/.nvm"
 # Load vim keybinding
 . "${HOME}/dotfiles/BattleStation/zsh/vim.zsh"
 
+export PATH=$PATH:/home/xypnox/.spicetify

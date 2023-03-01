@@ -178,8 +178,15 @@ lvim.plugins = {
       vim.defer_fn(function()
         require("copilot").setup {
           plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+          filetypes = {
+            markdown = false,
+          },
           suggestion = {
+            enabled = true,
             auto_trigger = true,
+            keymap = {
+              accept = "<M-Space>",
+            },
           }
         }
       end, 100)
@@ -233,6 +240,16 @@ lvim.plugins = {
 
       }
     end
+  },
+
+  -- Css colors
+  {
+    'norcalli/nvim-colorizer.lua',
+  },
+
+  -- Tabular
+  {
+    "godlygeek/tabular",
   },
 
   -- My own para plugin

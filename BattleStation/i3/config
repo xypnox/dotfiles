@@ -192,7 +192,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding in fancy rofi (automated):
-bindsym F1 exec ~/.config/i3/scripts/keyhint-2
+# bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
@@ -314,11 +314,11 @@ set $ws10 " 0 "
 
 # bind program to workspace and focus to them on startup:
 # assign [class="Xfce4-terminal"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="Thunar"] $ws3
+# assign [class="(?i)firefox"] $ws2
+# assign [class="Thunar"] $ws3
 # assign [class="thunderbird"] $ws4
 assign [class="TelegramDesktop"] $ws5
-assign [class="Spotify"] $ws5
+# assign [class="Spotify"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=alacritty] focus
