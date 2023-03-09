@@ -15,6 +15,12 @@ lvim.colorscheme = "lunar"
 lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
+--
+
+-- Text Wrapping
+vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.list = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -44,6 +50,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --     ["<C-k>"] = actions.move_selection_previous,
 --   },
 -- }
+
+-- Custom Mappings
+-- Markdown TOC, Shows the TOC of the current file in a split buffer
+lvim.keys.normal_mode["<leader>mt"] = ":Toc<cr>"
 
 -- Show better paths in the find file menu
 lvim.builtin.telescope.defaults.path_display = { "smart" }
@@ -250,6 +260,11 @@ lvim.plugins = {
   -- Tabular
   {
     "godlygeek/tabular",
+  },
+
+  -- Markdown
+  {
+    'https://github.com/ixru/nvim-markdown.git',
   },
 
   -- My own para plugin

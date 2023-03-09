@@ -278,8 +278,11 @@ bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
 
 # Screenshot
+
 # PrintScreen replacement with Mod+PageUp which is written as Prior
 bindsym $mod+Prior --release exec --no-startup-id i3-scrot 
+bindsym $mod+Shift+Prior --release exec --no-startup-id flameshot screen
+
 # Select and take screenshot
 bindsym $mod+Next --release exec --no-startup-id i3-scrot -s 
 
@@ -328,7 +331,7 @@ workspace $ws10 output DP-2
 # assign [class="Thunar"] $ws3
 # assign [class="thunderbird"] $ws4
 assign [class="TelegramDesktop"] $ws10
-assign [class="spotify"] $ws10
+assign [class="(?i)spotify"] $ws10
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=alacritty] focus
@@ -393,7 +396,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 
 # Keyboard: Replace capslock with escape
-exec --no-startup-id setxkbmap -option caps:escape
+exec_always --no-startup-id setxkbmap -option caps:escape
 
 # Mouse: Set Pointer Speed
 exec --no-startup-id xinput set-prop 'Logitech G502 X' 'libinput Accel Speed' -0.82
@@ -592,11 +595,11 @@ bindsym $mod+d exec rofi -modi drun -show drun \
 bindsym $mod+t exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
-#bindsym F10 exec rofi -show window \
-#		-config ~/.config/rofi/rofidmenu.rasi
+# bindsym F10 exec rofi -show window \
+# 		-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
+exec --no-startup-id greenclip daemon>/dev/null
 
-#exec --no-startup-id greenclip daemon>/dev/null
-#bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
-#		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
+		-config ~/.config/rofi/rofidmenu.rasi
