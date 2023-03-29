@@ -18,7 +18,7 @@ lvim.transparent_window = true
 --
 
 -- Text Wrapping
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.list = false
 
@@ -218,6 +218,16 @@ lvim.plugins = {
     "ron-rs/ron.vim"
   },
 
+  -- Goto Preview for previewing the definition of a symbol
+  {
+    "rmagatti/goto-preview",
+    config = function()
+      require("goto-preview").setup {
+        default_mappings = true,
+      }
+    end,
+  },
+
 
   -- Zen Mode
   {
@@ -265,6 +275,14 @@ lvim.plugins = {
   -- Markdown
   {
     'https://github.com/ixru/nvim-markdown.git',
+  },
+
+  -- Neoscroll
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup()
+    end
   },
 
   -- My own para plugin
