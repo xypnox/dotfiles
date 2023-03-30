@@ -268,6 +268,7 @@ load-nvmrc
 export DENO_INSTALL="/home/xypnox/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=$PATH:/home/xypnox/.spicetify
+export PATH="$PATH:/home/xypnox/dotfiles/scripts/"
 
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit
