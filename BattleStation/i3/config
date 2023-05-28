@@ -318,6 +318,7 @@ workspace $ws2 output DP-4
 workspace $ws3 output DP-4
 workspace $ws4 output DP-4
 workspace $ws5 output DP-4
+workspace $ws6 output DP-4
 
 # Bind the next workspaces to the secondary display
 workspace $ws7 output DP-2

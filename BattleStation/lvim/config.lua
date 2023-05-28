@@ -142,11 +142,9 @@ lvim.builtin.treesitter.highlight.enable = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- set a formatter, this will override the language server formatting capabilities (if it exists)
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
 --   {
 --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 --     command = "prettier",
@@ -154,7 +152,7 @@ lvim.builtin.treesitter.highlight.enable = true
 --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
 --     extra_args = { "--print-with", "100" },
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
+--     filetypes = { "html", "htmldjango" },
 --   },
 -- }
 
@@ -265,6 +263,9 @@ lvim.plugins = {
   -- Css colors
   {
     'norcalli/nvim-colorizer.lua',
+    config = function()
+      require("colorizer").setup()
+    end
   },
 
   -- Tabular
@@ -292,7 +293,6 @@ lvim.plugins = {
     ft = { 'markdown' },
   }
 }
-
 
 -- Copilot setup for completion
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
