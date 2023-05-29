@@ -1,7 +1,0 @@
-@use "option" as *;
-
-@mixin NativeMenu() {
-  @include Option("widget.macos.native-context-menus", "widget.gtk.native-context-menus") {
-    @content;
-  }
-}
