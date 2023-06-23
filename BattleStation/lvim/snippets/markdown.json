@@ -1,0 +1,23 @@
+{
+  "library": {
+    "prefix": "library",
+    "body": [
+      "",
+      "Ref: link",
+      "",
+      "About: links",
+      "",
+      "By: author",
+      "",
+      "## Highlights and Notes"
+    ],
+    "description": "Add library template"
+  },
+  "assetimage": {
+    "prefix": "assetimage",
+    "body": [
+      "![](/assets/images/)",
+    ],
+    "description": "Add asset image"
+  }
+}

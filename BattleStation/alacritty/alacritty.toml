@@ -1,0 +1,37 @@
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.primary]
+background = "#0f111a"
+foreground = "#c5c8c6"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[cursor]
+vi_mode_style = "Block"
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "IosevkaTerm Nerd Font"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[window]
+dynamic_padding = true
+opacity = 0.9
+
+[window.padding]
+x = 10
+y = 10

@@ -24,7 +24,7 @@
 
 /* Shrink sidebar until hovered, when using Tree Style Tab. */
 :root {
-    --thin-tab-width: 200px;
+    --thin-tab-width: 40px;
     --wide-tab-width: 300px;
 }
 #sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
