@@ -273,3 +273,8 @@ export PATH="$PATH:/home/xypnox/dotfiles/scripts/"
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit
 compinit -u
+
+# pnpm
+export PNPM_HOME="/home/xypnox/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
