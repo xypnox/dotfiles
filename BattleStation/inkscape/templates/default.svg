@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="768"
+   viewBox="0 0 1024 768"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="default.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#0f111a"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.20301699"
+     inkscape:cx="2972.6577"
+     inkscape:cy="2100.8094"
+     inkscape:window-width="2518"
+     inkscape:window-height="1375"
+     inkscape:window-x="2580"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showborder="false"
+     showgrid="true">
+    <inkscape:grid
+       id="grid2"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.17647059"
+       color="#0099e5"
+       opacity="0.0745098"
+       empspacing="64"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Background"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#0f111a;fill-opacity:1;stroke-width:2"
+       id="rect3"
+       width="1024"
+       height="768"
+       x="0"
+       y="0"
+       inkscape:label="BackgroundRect" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:42.6667px;font-family:'Iosevka Term';-inkscape-font-specification:'Iosevka Term, Normal ';fill:#ff5370;fill-opacity:1;stroke:none;stroke-width:2"
+       x="15.687282"
+       y="45.62624"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="15.687282"
+         y="45.62624">Primary</tspan></text>
+    <rect
+       style="fill:#1a1f34;fill-opacity:1;stroke-width:0.209839"
+       id="rect2"
+       width="24"
+       height="24"
+       x="187.50235"
+       y="22.532904" />
+    <rect
+       style="fill:#2d365b;fill-opacity:1;stroke-width:0.209839"
+       id="rect2-9"
+       width="24"
+       height="24"
+       x="211.50235"
+       y="22.532904" />
+    <rect
+       style="fill:#8d98c9;fill-opacity:1;stroke-width:0.209839"
+       id="rect2-9-3"
+       width="24"
+       height="24"
+       x="235.50235"
+       y="22.532904" />
+  </g>
+</svg>
