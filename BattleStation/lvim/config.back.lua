@@ -287,11 +287,11 @@ lvim.plugins = {
   },
 
   -- My own para plugin
-  -- {
-  --   '~/Projects/cmp-wiki-para',
-  --   -- only for markdown files
-  --   ft = { 'markdown' },
-  -- }
+  {
+    '~/Projects/cmp-wiki-para',
+    -- only for markdown files
+    ft = { 'markdown' },
+  }
 }
 
 -- Copilot setup for completion

@@ -403,7 +403,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id setxkbmap -option caps:escape
 
 # Mouse: Set Pointer Speed
-exec --no-startup-id xinput set-prop 'Logitech G502 X' 'libinput Accel Speed' -0.82
+exec --no-startup-id xinput set-prop 'Logitech G502 X' 'libinput Accel Speed' -0.66
 
 # start conky:
 #exec_always --no-startup-id conky
