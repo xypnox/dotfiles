@@ -275,7 +275,7 @@ lvim.plugins = {
 
   -- Markdown
   {
-    'https://github.com/ixru/nvim-markdown.git',
+    url = 'https://github.com/ixru/nvim-markdown.git',
   },
 
   -- Neoscroll
@@ -287,11 +287,11 @@ lvim.plugins = {
   },
 
   -- My own para plugin
-  -- {
-  --   '~/Projects/cmp-wiki-para',
-  --   -- only for markdown files
-  --   ft = { 'markdown' },
-  -- }
+  {
+    dir = '~/Projects/cmp-wiki-para',
+    -- only for markdown files
+    ft = { 'markdown' },
+  }
 }
 
 -- Copilot setup for completion
