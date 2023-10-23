@@ -314,3 +314,18 @@ table.insert(lvim.builtin.cmp.sources, 1, { name = "vimwiki-para" })
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+--
+--
+--
+
+local lspconfig = require('lspconfig')
+
+-- By default the astro lsp doesn't get the corrent ts so the suggestions fail
+-- This points to the typescript directory to be used specifically
+lspconfig.astro.setup({
+  init_options = {
+    typescript = {
+      tsdk = vim.fs.normalize('~/.nvm/versions/node/v18.15.0/lib/node_modules/typescript/lib')
+    }
+  },
+})
