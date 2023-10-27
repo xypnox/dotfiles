@@ -318,6 +318,14 @@ table.insert(lvim.builtin.cmp.sources, 1, { name = "vimwiki-para" })
 --
 --
 
+-- For markdown files, enable spell check
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.api.nvim_command('setlocal spell')   -- body
+  end,
+})
+
 local lspconfig = require('lspconfig')
 
 -- By default the astro lsp doesn't get the corrent ts so the suggestions fail
