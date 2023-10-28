@@ -176,35 +176,35 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-  -- Copilot
-  { "github/copilot.vim" },
+  -- -- Copilot
+  -- { "github/copilot.vim" },
 
-  {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup {
-          plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-          filetypes = {
-            markdown = false,
-          },
-          suggestion = {
-            enabled = true,
-            auto_trigger = true,
-            keymap = {
-              accept = "<M-Space>",
-            },
-          }
-        }
-      end, 100)
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = { "VimEnter" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup {
+  --         plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+  --         filetypes = {
+  --           markdown = false,
+  --         },
+  --         suggestion = {
+  --           enabled = true,
+  --           auto_trigger = true,
+  --           keymap = {
+  --             accept = "<M-Space>",
+  --           },
+  --         }
+  --       }
+  --     end, 100)
+  --   end,
+  -- },
 
-  -- Copilot
-  { "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua", "nvim-cmp" },
-  },
+  -- -- Copilot
+  -- { "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua", "nvim-cmp" },
+  -- },
 
   -- Surround plugin to surround a vim object with symbols such as brackets
   {
