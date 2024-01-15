@@ -10,9 +10,30 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
+lvim.format_on_save.enabled = true
+lvim.format_on_save.pattern = {
+  "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.html", "*.css", "*.scss", "*.ron", "*.lua"
+}
+
 lvim.colorscheme = "lunar"
 lvim.transparent_window = true
+-- cmd "au ColorScheme * hi Normal ctermbg=none guibg=none"
+-- cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
+-- cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
+-- cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
+-- cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
+-- cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
+-- cmd "let &fcs='eob: '"
+
+vim.api.nvim_command('au ColorScheme * hi Normal ctermbg=none guibg=none')
+vim.api.nvim_command('au ColorScheme * hi SignColumn ctermbg=none guibg=none')
+vim.api.nvim_command('au ColorScheme * hi NormalNC ctermbg=none guibg=none')
+vim.api.nvim_command('au ColorScheme * hi MsgArea ctermbg=none guibg=none')
+vim.api.nvim_command('au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none')
+vim.api.nvim_command('au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none')
+vim.api.nvim_command('let &fcs="eob: "')
+
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 --
@@ -176,30 +197,30 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-  -- -- Copilot
-  -- { "github/copilot.vim" },
+  -- Copilot
+  { "github/copilot.vim" },
 
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   event = { "VimEnter" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("copilot").setup {
-  --         plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-  --         filetypes = {
-  --           markdown = false,
-  --         },
-  --         suggestion = {
-  --           enabled = true,
-  --           auto_trigger = true,
-  --           keymap = {
-  --             accept = "<M-Space>",
-  --           },
-  --         }
-  --       }
-  --     end, 100)
-  --   end,
-  -- },
+  {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup {
+          plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+          filetypes = {
+            markdown = false,
+          },
+          suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            keymap = {
+              accept = "<M-Space>",
+            },
+          }
+        }
+      end, 100)
+    end,
+  },
 
   -- -- Copilot
   -- { "zbirenbaum/copilot-cmp",
@@ -246,10 +267,10 @@ lvim.plugins = {
           -- by default, no options are changed for the Zen window
           -- uncomment any of the options below, or add other vim.wo options you want to apply
           options = {
-            signcolumn = "no", -- disable signcolumn
-            number = false, -- disable number column
+            signcolumn = "no",      -- disable signcolumn
+            number = false,         -- disable number column
             relativenumber = false, -- disable relative numbers
-            cursorline = false, -- disable cursorline
+            cursorline = false,     -- disable cursorline
             -- cursorcolumn = false, -- disable cursor column
             -- foldcolumn = "0", -- disable fold column
             -- list = false, -- disable whitespace characters
@@ -322,7 +343,7 @@ table.insert(lvim.builtin.cmp.sources, 1, { name = "vimwiki-para" })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    vim.api.nvim_command('setlocal spell')   -- body
+    vim.api.nvim_command('setlocal spell') -- body
   end,
 })
 

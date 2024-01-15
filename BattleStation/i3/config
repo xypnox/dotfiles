@@ -414,7 +414,7 @@ exec --no-startup-id xinput set-prop 'Logitech G502 X' 'libinput Accel Speed' -0
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /home/xypnox/Pictures/wallhaven-p8gp83.jpg
+exec --no-startup-id sleep 1 && feh --bg-fill /home/xypnox/Pictures/mounts.png
 
 # set powersavings for display:
 # exec --no-startup-id xset s 480 dpms 600 600 600

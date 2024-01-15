@@ -2,9 +2,9 @@
 cursor = "CellForeground"
 text = "CellBackground"
 
-[colors.primary]
-background = "#0f111a"
-foreground = "#c5c8c6"
+# [colors.primary]
+# background = "#0f111a"
+# foreground = "#c5c8c6"
 
 [colors.vi_mode_cursor]
 cursor = "CellForeground"
@@ -35,3 +35,23 @@ opacity = 0.9
 [window.padding]
 x = 10
 y = 10
+
+[colors]
+primary.background = '#0f111a'
+primary.foreground = '#a9b1d6'
+normal.black = '#32344a'
+normal.red = '#ff5370'
+normal.green = '#9ece6a'
+normal.yellow = '#e0af68'
+normal.blue = '#7aa2f7'
+normal.magenta = '#ad8ee6'
+normal.cyan = '#449dab'
+normal.white = '#787c99'
+bright.black = '#444b6a'
+bright.red = '#ff7a93'
+bright.green = '#b9f27c'
+bright.yellow = '#ff9e64'
+bright.blue = '#7da6ff'
+bright.magenta = '#bb9af7'
+bright.cyan = '#0db9d7'
+bright.white = '#acb0d0'
