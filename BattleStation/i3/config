@@ -280,11 +280,14 @@ bindsym $mod+n exec /usr/bin/thunar
 # Screenshot
 
 # PrintScreen replacement with Mod+PageUp which is written as Prior
-bindsym $mod+Prior --release exec --no-startup-id i3-scrot 
-bindsym $mod+Shift+Prior --release exec --no-startup-id flameshot screen
+# Left and Right screens
+bindsym $mod+Prior --release exec --no-startup-id "scrot '/home/xypnox/Pictures/Screenshot/left_screen_%Y-%m-%d-%H%M%S.png' -a 0,0,2560,1440"
+bindsym $mod+Next --release exec --no-startup-id "scrot '/home/xypnox/Pictures/Screenshot/right_screen_%Y-%m-%d-%H%M%S.png' -a 2560,0,2560,1440"
 
+# Take screenshot of both screens
+bindsym $mod+Shift+Prior --release exec --no-startup-id i3-scrot
 # Select and take screenshot
-bindsym $mod+Next --release exec --no-startup-id i3-scrot -s 
+bindsym $mod+Shift+Next --release exec --no-startup-id i3-scrot -s 
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -500,7 +503,7 @@ set $lightblue		#5294e2
 set $urgentred		#e53935
 set $white		#ffffff
 set $black		#000000
-set $purple		#e345ff
+set $purple		#9747FF
 set $darkgrey		#383c4a
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
