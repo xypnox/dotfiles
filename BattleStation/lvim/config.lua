@@ -216,7 +216,17 @@ lvim.plugins = {
             keymap = {
               accept = "<M-Space>",
             },
-          }
+          },
+          panel = {
+            auto_refresh = false,
+            keymap = {
+              accept = "<CR>",
+              jump_prev = "[[",
+              jump_next = "]]",
+              refresh = "gr",
+              open = "<M-CR>",
+            },
+          },
         }
       end, 100)
     end,
@@ -282,12 +292,12 @@ lvim.plugins = {
   },
 
   -- Css colors
-  {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require("colorizer").setup()
-    end
-  },
+  -- {
+  --   'norcalli/nvim-colorizer.lua',
+  --   config = function()
+  --     require("colorizer").setup()
+  --   end
+  -- },
 
   -- Tabular
   {
@@ -347,6 +357,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+
 local lspconfig = require('lspconfig')
 
 -- By default the astro lsp doesn't get the corrent ts so the suggestions fail
@@ -358,3 +369,85 @@ lspconfig.astro.setup({
     }
   },
 })
+
+-- Function to set up the filetype with the syntax highlight for .ftd files
+local function SetupFtdSyntax()
+  vim.bo.filetype = 'ftd'
+
+  vim.cmd([[
+    " Component Declarations, with optional whitespace handling for nested components
+    syntax match ComponentDeclaration "^\s*--\s\+\(\w\|[-.]\)\+" contained
+    syntax match ComponentEnd "^\s*--\s*end:\s*\(\w\|[-.]\)\+" contained
+    " syntax match ComponentDeclaration "^\s*--\s\+\w\+" contained
+    " syntax match ComponentEnd "^\s*--\s\+end:\s\+\w\+" contained
+
+    " Define a broader match for any line that could contain a key-value pair, if necessary
+    syntax match ComponentLine "^\s*\w\+[\w\.\-$]*\s*:\s*.*" contains=ComponentKey
+
+    " Match only the key part of a key:value pair
+    syntax match ComponentKey "^\s*\(\w\|[-.]\)\+\ze:"
+
+    " Comments: Adjusted patterns to ensure correct matching
+    syntax match ComponentComment "^\s*;;.*" contained
+
+    " Apply contains=ALL to ensure nested components and comments
+    " are highlighted within parent components
+    syntax region ComponentStart start=/^\s*--\s\+\w\+/ end=/^\s*--\s\+end:/ contains=ComponentDeclaration,ComponentEnd,ComponentKey,ComponentComment
+    syntax region ComponentRegion start="pattern" end="pattern" contains=ComponentKey
+
+    " Highlight links
+    highlight link ComponentDeclaration Tag
+    highlight link ComponentEnd PreProc
+    highlight link ComponentKey Identifier
+    highlight link ComponentComment Comment
+  ]])
+end
+
+-- Set up autocommands to apply the custom syntax highlighting for .ftd files
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.ftd",
+  callback = SetupFtdSyntax,
+})
+
+--- BETTER
+-- " Component Declarations, handling optional leading whitespace for nested components
+-- syntax match ComponentDeclaration "^\s*--\s\+\w\+" contained
+-- syntax match ComponentEnd "^\s*--\s\+end:\s\+\w\+" contained
+
+-- " Properties: Adjusted to match more complex patterns, including special characters and leading whitespace
+-- syntax match ComponentProperty "^\s*\w\+\(\.\w\+\)*\s*:\s\+\S\+" contained
+
+-- " Comments: Adjusted patterns to ensure correct matching
+-- syntax match ComponentComment "^\s*;;.*" contained
+-- syntax match ComponentSlashComment "^/\w\+" contained
+
+-- " Apply contains=ALL to ensure nested components and comments are highlighted within parent components
+-- syntax region ComponentStart start=/^\s*--\s\+\w\+/ end=/^\s*--\s\+end:/ contains=ComponentDeclaration,ComponentEnd,ComponentProperty,ComponentComment,ComponentSlashComment
+
+-- " Highlight links
+-- highlight link ComponentDeclaration Identifier
+-- highlight link ComponentEnd PreProc
+-- highlight link ComponentProperty Type
+-- highlight link ComponentComment Comment
+-- highlight link ComponentSlashComment Comment
+
+
+
+
+-- " Clear any existing syntax definitions
+-- syntax clear
+
+-- " Component Declarations
+-- syntax match ComponentDeclaration "^--\s*\w\+\(.*\):"hs=s+2,he=e-1 containedin=ALLBUT,Comment
+-- syntax match ComponentEnd "^--\s*end:\s*\w\+$" containedin=ALLBUT,Comment
+
+-- " Data Declarations: Matching keys with '.', '-' and highlighting values after ':'
+-- syntax match DataDeclaration "^\w\[\w\.\-]\+\ze:.*$" containedin=ALLBUT,Comment
+-- syntax match DataKey "^\w\[\w\.\-]\+\ze:" containedin=DataDeclaration
+-- syntax match DataValue "\s\zs.\+$" containedin=DataDeclaration
+
+-- " Define highlight links for the syntax groups
+-- highlight link ComponentDeclaration Type
+-- highlight link ComponentEnd Comment
+-- highlight link DataKey Type
+-- highlight link DataValue Text
