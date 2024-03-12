@@ -278,3 +278,14 @@ compinit -u
 export PNPM_HOME="/home/xypnox/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+
+export FASTN_HOME="/home/xypnox/.fastn/bin"
+export PATH=$PATH:$FASTN_HOME
+
+eval "$(atuin init zsh)"

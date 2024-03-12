@@ -17,22 +17,6 @@ lvim.format_on_save.pattern = {
 
 lvim.colorscheme = "lunar"
 lvim.transparent_window = true
--- cmd "au ColorScheme * hi Normal ctermbg=none guibg=none"
--- cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
--- cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
--- cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
--- cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
--- cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
--- cmd "let &fcs='eob: '"
-
-vim.api.nvim_command('au ColorScheme * hi Normal ctermbg=none guibg=none')
-vim.api.nvim_command('au ColorScheme * hi SignColumn ctermbg=none guibg=none')
-vim.api.nvim_command('au ColorScheme * hi NormalNC ctermbg=none guibg=none')
-vim.api.nvim_command('au ColorScheme * hi MsgArea ctermbg=none guibg=none')
-vim.api.nvim_command('au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none')
-vim.api.nvim_command('au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none')
-vim.api.nvim_command('let &fcs="eob: "')
-
 
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -317,6 +301,11 @@ lvim.plugins = {
     end
   },
 
+  {
+    "ray-x/lsp_signature.nvim",
+  },
+
+
   -- My own para plugin
   {
     dir = '~/Projects/cmp-wiki-para',
@@ -408,46 +397,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.ftd",
   callback = SetupFtdSyntax,
 })
-
---- BETTER
--- " Component Declarations, handling optional leading whitespace for nested components
--- syntax match ComponentDeclaration "^\s*--\s\+\w\+" contained
--- syntax match ComponentEnd "^\s*--\s\+end:\s\+\w\+" contained
-
--- " Properties: Adjusted to match more complex patterns, including special characters and leading whitespace
--- syntax match ComponentProperty "^\s*\w\+\(\.\w\+\)*\s*:\s\+\S\+" contained
-
--- " Comments: Adjusted patterns to ensure correct matching
--- syntax match ComponentComment "^\s*;;.*" contained
--- syntax match ComponentSlashComment "^/\w\+" contained
-
--- " Apply contains=ALL to ensure nested components and comments are highlighted within parent components
--- syntax region ComponentStart start=/^\s*--\s\+\w\+/ end=/^\s*--\s\+end:/ contains=ComponentDeclaration,ComponentEnd,ComponentProperty,ComponentComment,ComponentSlashComment
-
--- " Highlight links
--- highlight link ComponentDeclaration Identifier
--- highlight link ComponentEnd PreProc
--- highlight link ComponentProperty Type
--- highlight link ComponentComment Comment
--- highlight link ComponentSlashComment Comment
-
-
-
-
--- " Clear any existing syntax definitions
--- syntax clear
-
--- " Component Declarations
--- syntax match ComponentDeclaration "^--\s*\w\+\(.*\):"hs=s+2,he=e-1 containedin=ALLBUT,Comment
--- syntax match ComponentEnd "^--\s*end:\s*\w\+$" containedin=ALLBUT,Comment
-
--- " Data Declarations: Matching keys with '.', '-' and highlighting values after ':'
--- syntax match DataDeclaration "^\w\[\w\.\-]\+\ze:.*$" containedin=ALLBUT,Comment
--- syntax match DataKey "^\w\[\w\.\-]\+\ze:" containedin=DataDeclaration
--- syntax match DataValue "\s\zs.\+$" containedin=DataDeclaration
-
--- " Define highlight links for the syntax groups
--- highlight link ComponentDeclaration Type
--- highlight link ComponentEnd Comment
--- highlight link DataKey Type
--- highlight link DataValue Text

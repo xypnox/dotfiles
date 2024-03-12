@@ -345,6 +345,18 @@ for_window [class=Thunar] focus
 for_window [class=TelegramDesktop] focus
 for_window [class=Spotify] focus
 
+# Assign firefox windows with titles of specific numbers to specific workspaces
+for_window [title="^\[1"] move to workspace $ws1
+for_window [title="^\[2"] move to workspace $ws2
+for_window [title="^\[3"] move to workspace $ws3
+for_window [title="^\[4"] move to workspace $ws4
+for_window [title="^\[5"] move to workspace $ws5
+for_window [title="^\[6"] move to workspace $ws6
+for_window [title="^\[7"] move to workspace $ws7
+for_window [title="^\[8"] move to workspace $ws8
+for_window [title="^\[9"] move to workspace $ws9
+for_window [title="^\[0"] move to workspace $ws0
+
 # Don't focus on widow activation
 focus_on_window_activation none
 
