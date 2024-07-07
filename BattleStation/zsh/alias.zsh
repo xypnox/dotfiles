@@ -8,7 +8,7 @@ NC='\033[0m' # No Color
 # Terminal
 #
 alias cls='echo -en "${RED}~~~\n\n\n\n\n\n~~~ CLEAR ~~~\n\n\n\n\n\n~~~${NC}" && clear'
-alias dt='lsd --tree --depth 1'
+alias dt='lsd --tree --depth 2'
 
 # Git
 #

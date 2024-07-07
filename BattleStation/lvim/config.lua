@@ -197,9 +197,9 @@ lvim.plugins = {
           suggestion = {
             enabled = true,
             auto_trigger = true,
-            keymap = {
-              accept = "<M-Space>",
-            },
+            -- keymap = {
+            --   accept = "<M-Space>",
+            -- },
           },
           panel = {
             auto_refresh = false,
