@@ -182,24 +182,29 @@ lvim.builtin.treesitter.highlight.enable = true
 -- Additional Plugins
 lvim.plugins = {
   -- Copilot
-  { "github/copilot.vim" },
+  {
+    "github/copilot.vim",
+    ft = { "lua", "python", "javascript", "typescript", "html", "css", "json" },
 
   {
     "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
+    cmd = "Copilot",
+    event = { "InsertEnter" },
     config = function()
       vim.defer_fn(function()
         require("copilot").setup {
           plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
           filetypes = {
-            markdown = false,
+            -- markdown = false,
           },
           suggestion = {
             enabled = true,
             auto_trigger = true,
-            -- keymap = {
-            --   accept = "<M-Space>",
-            -- },
+            keymap = {
+              accept = "<M-Space>",
+              accept_word = false,
+              accept_line = false,
+            },
           },
           panel = {
             auto_refresh = false,
