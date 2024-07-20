@@ -185,6 +185,7 @@ lvim.plugins = {
   {
     "github/copilot.vim",
     ft = { "lua", "python", "javascript", "typescript", "html", "css", "json" },
+  },
 
   {
     "zbirenbaum/copilot.lua",
