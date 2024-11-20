@@ -1,5 +1,0 @@
-"
-" Neovim Configuration
-" by xypnox
-"
-"
