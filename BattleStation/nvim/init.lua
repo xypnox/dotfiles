@@ -235,7 +235,7 @@ require("lazy").setup({
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = "all",
+				ensure_installed = { "c", "lua", "typescript", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
 				highlight = { enable = true },
 				indent = { enable = true },
 				autotag = { enable = true, enable_close_on_slash = false },
