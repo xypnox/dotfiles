@@ -26,6 +26,15 @@ vim.opt.pumheight = 10
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
 
 
 -- Basic mappings
@@ -102,23 +111,23 @@ require("lazy").setup({
 			-- markdown = false,
 		      },
 		      suggestion = {
-			enabled = true,
-			auto_trigger = true,
-			keymap = {
-			  accept = "<M-Space>",
-			  accept_word = false,
-			  accept_line = false,
-			},
-		      },
-		      panel = {
-			auto_refresh = false,
-			keymap = {
-			  accept = "<CR>",
-			  jump_prev = "[[",
-			  jump_next = "]]",
-			  refresh = "gr",
-			  open = "<M-CR>",
-			},
+				enabled = true,
+				auto_trigger = true,
+				keymap = {
+					accept = "<M-Space>",
+					accept_word = false,
+					accept_line = false,
+				},
+						},
+						panel = {
+				auto_refresh = false,
+				keymap = {
+					accept = "<CR>",
+					jump_prev = "[[",
+					jump_next = "]]",
+					refresh = "gr",
+					open = "<M-CR>",
+				},
 		      },
 		    }
 		  end, 100)
@@ -169,6 +178,20 @@ require("lazy").setup({
 			{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
 		},
 	},
+	{
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("nvim-tree").setup()
+	vim.cmd("autocmd VimEnter * hi NvimTreeNormal guibg=NONE" )
+	vim.cmd("autocmd VimEnter * hi NvimTreeNormalNC guibg=NONE" )
+    end,
+    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    event = "User DirOpened",
+		keys = {
+			{ "<leader>-", "<cmd>NvimTreeFindFileToggle<cr>", desc = "Toggle File Tree" },
+		},
+  },
+
 
 	-- LSP
 	{
