@@ -295,6 +295,7 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
+				rust = { "rustfmt" },
 				javascriptreact = { "prettierd" },
 				typescriptreact = { "prettierd" },
 				javascript = { "prettierd" },
@@ -303,6 +304,7 @@ require("lazy").setup({
 				json = { "prettierd" },
 				css = { "prettierd" },
 				lua = { "stylua" },
+				astro = { lsp_format = "prefer" },
 			},
 			format_on_save = {
 			},
