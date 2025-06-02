@@ -41,6 +41,9 @@ alias gpl='git pull'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 
+# Find files
+alias rgf='rg -l --sort path'
+
 # Yarn
 #
 # alias ys='yarn start'
@@ -51,6 +54,7 @@ alias gra='git rebase --abort'
 
 # JS
 alias rgcmt='rg "[^/][^/]\\s*console\.log" --sort path | cat'
+
 
 # LunarVim
 alias lv='lvim'
