@@ -519,3 +519,33 @@ cmp.setup({
 })
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+---
+-- Set up project-wide checks with :make
+---
+
+-- Create a dedicated, clearable group for project check autocommands.
+local project_check_augroup = vim.api.nvim_create_augroup("ProjectCheck", { clear = true })
+
+-- Set up the compiler for TypeScript projects.
+vim.api.nvim_create_autocmd("FileType", {
+  group = project_check_augroup,
+  pattern = "typescript,typescriptreact",
+  callback = function()
+    -- Load the built-in 'tsc' compiler profile which sets a suitable errorformat. [3]
+    vim.cmd("compiler tsc")
+
+    -- Override 'makeprg' to use your project's pnpm command.
+    -- The '--pretty false' flag ensures stable, parsable output. [2]
+    vim.bo.makeprg = "pnpm tsc --noEmit --pretty false"
+  end,
+})
+
+
+-- Keybinding to run the configured makeprg and open the quickfix list.
+vim.keymap.set("n", "<leader>t", function()
+  -- Runs the makeprg command asynchronously and silently.
+  vim.cmd("silent! make!")
+  -- Opens the quickfix window to display any errors or warnings.
+  vim.cmd("copen")
+end, { noremap = true, silent = true, desc = "Run project-wide check" })
