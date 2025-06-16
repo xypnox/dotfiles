@@ -16,13 +16,22 @@ get_status() {
     STATUS=$(playerctl status)
     # Correctly using xesam:album for the title as per your metadata output
     ARTIST=$(playerctl metadata xesam:artist)
-    TITLE=$(playerctl metadata xesam:album)
+    TITLE=$(playerctl metadata xesam:title)
+    ALBUM=$(playerctl metadata xesam:album)
 
     # Combine artist and title, but show title if artist is missing
     if [ -n "$ARTIST" ]; then
+        if [ -n "$ALBUM" ]; then
+            TEXT="$ARTIST - $TITLE ($ALBUM)"
+        else
         TEXT="$ARTIST - $TITLE"
+        fi
     else
+        if [ -n "$ALBUM" ]; then
+            TEXT="$TITLE ($ALBUM)"
+        else
         TEXT="$TITLE"
+        fi
     fi
 
     # Set icons based on player status
