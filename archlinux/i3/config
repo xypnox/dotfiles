@@ -58,7 +58,7 @@ gaps inner 6
 gaps outer 3
 
 # show window title bars (not officially supported with i3gaps)
-default_border pixel 2
+default_border pixel 1
 
 # window title alignment
 #title_align center
@@ -396,7 +396,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /home/xypnox/Pictures/walls/image-from-rawpixel-id-3309013-jpeg.jpg
+exec --no-startup-id sleep 1 && feh --bg-fill /home/xypnox/Pictures/walls/milad-fakurian-Oi_oaJk3qlo-unsplash.jpg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
