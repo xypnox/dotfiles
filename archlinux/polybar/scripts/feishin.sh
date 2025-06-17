@@ -62,8 +62,5 @@ case "$1" in
         # Default action: start the monitoring loop for Polybar
         # This will print the status once, then wait for events.
         get_status
-        playerctl --follow status,metadata 2>/dev/null | while read -r; do
-            get_status
-        done
         ;;
 esac
