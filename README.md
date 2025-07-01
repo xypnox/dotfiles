@@ -2,7 +2,7 @@
 
 My system's dotfile :smile:
 
-# ElementaryOS (BattleStation)
+# EndeavourOS (BattleStation)
 
 ![desktop with code](./screens/xy1.png)
 ![desktop with year and bottom system monitor](./screens/xy2.png)

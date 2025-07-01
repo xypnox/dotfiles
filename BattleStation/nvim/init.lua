@@ -268,6 +268,10 @@ require("lazy").setup({
 	},
 
 	{
+		"IndianBoy42/tree-sitter-just"
+	},
+
+	{
 		"rmagatti/goto-preview",
 		dependencies = { "rmagatti/logger.nvim" },
 		event = "BufEnter",
@@ -549,3 +553,13 @@ vim.keymap.set("n", "<leader>t", function()
   -- Opens the quickfix window to display any errors or warnings.
   vim.cmd("copen")
 end, { noremap = true, silent = true, desc = "Run project-wide check" })
+
+
+
+-- Add this to your init.lua, for example after the other basic mappings.
+
+-- Custom mapping for viewing Git file history with Telescope.
+vim.keymap.set("n", "<leader>gh", function()
+  -- Lazily require the custom module to avoid startup overhead.
+  require("custom.telescope").file_history()
+end, { noremap = true, silent = true, desc = "Git History (File)" })

@@ -265,6 +265,9 @@ load-nvmrc
 # Load vim keybinding
 . "${HOME}/dotfiles/BattleStation/zsh/vim.zsh"
 
+# Load cpai
+. "${HOME}/dotfiles/BattleStation/zsh/cpai.zsh"
+
 export DENO_INSTALL="/home/xypnox/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=$PATH:/home/xypnox/.spicetify
