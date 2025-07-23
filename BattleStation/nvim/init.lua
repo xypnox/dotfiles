@@ -37,6 +37,15 @@ vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
 
+-- folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99 -- Open all folds by default
+
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Yank to the system clipboard' })
+
+
+
 -- Basic mappings
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
@@ -55,6 +64,10 @@ vim.keymap.set("n", "<leader>o", ":tabonly<cr>:only<CR>", { silent = true })
 
 vim.api.nvim_set_option("clipboard","unnamed") 
 
+-- Markdown table formatting
+vim.keymap.set('n', '<leader>mf', '!ap tr -s " " | column -t -s \'|\' -o \'|\' | awk \'{print} END {print ""}\'<CR>', {
+  desc = "Format paragraph as Markdown table (add blank line)"
+})
 
 -- Setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

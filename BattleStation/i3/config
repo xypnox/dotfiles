@@ -62,6 +62,9 @@ gaps outer 00
 # window title alignment
 #title_align center
 
+# Disable switching mouse when focus changes between display outputs
+mouse_warping none
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
