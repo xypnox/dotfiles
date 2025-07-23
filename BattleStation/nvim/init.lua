@@ -357,6 +357,7 @@ require('goto-preview').setup {
 				lua = { "stylua" },
 				astro = { lsp_format = "prefer" },
 				rust = { "rustfmt" },
+				python = { "black" },
 			},
 			format_on_save = {
 			},
