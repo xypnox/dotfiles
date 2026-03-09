@@ -18,7 +18,7 @@ blinking = "On"
 shape = "Block"
 
 [font]
-size = 16.0
+size = 20.0
 
 [font.normal]
 family = "IosevkaTerm Nerd Font Mono"
