@@ -159,8 +159,8 @@ require("lazy").setup({
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason.nvim",
+			"mason-org/mason-lspconfig.nvim",
 		},
 	},
 
@@ -221,7 +221,7 @@ require("lazy").setup({
 			require("nvim-treesitter").install(filetypes)
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = filetypes,
-				callback = function() vim.treesitter.start() end,
+				callback = function() pcall(vim.treesitter.start) end,
 			})
 
 			vim.cmd 'colorscheme tokyonight'
@@ -423,29 +423,25 @@ local function get_python_path(workspace)
 	return vim.fn.exepath("python3") or "python"
 end
 
-require("mason-lspconfig").setup_handlers({
-	function(server_name)
-		require("lspconfig")[server_name].setup({
-			capabilities = capabilities,
-		})
+-- Global defaults for all LSP servers
+vim.lsp.config('*', {
+	capabilities = capabilities,
+})
+
+-- basedpyright-specific config
+vim.lsp.config('basedpyright', {
+	before_init = function(_, config)
+		config.settings.python = config.settings.python or {}
+		config.settings.python.pythonPath = get_python_path(config.root_dir)
 	end,
-	["basedpyright"] = function()
-		require("lspconfig").basedpyright.setup({
-			capabilities = capabilities,
-			before_init = function(_, config)
-				config.settings.python = config.settings.python or {}
-				config.settings.python.pythonPath = get_python_path(config.root_dir)
-			end,
-			settings = {
-				basedpyright = {
-					analysis = {
-						autoSearchPaths = true,
-						useLibraryCodeForTypes = true,
-					},
-				},
+	settings = {
+		basedpyright = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
 			},
-		})
-	end,
+		},
+	},
 })
 
 -- Global LSP mappings
